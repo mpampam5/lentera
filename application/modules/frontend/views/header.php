@@ -4,7 +4,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>jpkp</title>
+  <title>Lentera Digital Indonesia</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/css/vendor.bundle.base.css">
@@ -33,7 +33,7 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <button class="navbar-toggler navbar-toggler-left d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-        <span class="ti-layout-grid2" style="color:#e9b311;"></span>
+        <span class="ti-layout-grid2" style="color:#28a745;"></span>
       </button>
 
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -54,7 +54,7 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="ti-bell mx-0" style="color:#e9b311;"></i>
+              <i class="ti-bell mx-0" style="color:#28a745;"></i>
 
                 <span class="count"></span>
 
@@ -125,7 +125,7 @@
       <!-- partial -->
       <!-- partial:../../partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
-
+          <button type="button" class="btn-close-canvas navbar-toggler navbar-toggler-left d-lg-none align-self-center" data-toggle="offcanvas"><i class="ti ti-close"></i></button>
 
         <div class="header-menu">
           <img src="<?=base_url()?>_template/logo.png" alt="">
@@ -142,9 +142,14 @@
               <li><a href="features.html"><img src="<?=base_url()?>_template/images/icons/gray/mobile-app.png" alt="" title="" /><span>Layanan PPOB</span></a></li>
             </ul>
 
+            <div class="text-center mt-5">
+              <h5 class="text-center text-white" style="font-size:11px;">CUSTOMER SUPPORT</h5>
+                <ul class="customer-support">
+                  <li><a href="videos.html"><img src="<?=base_url()?>_template/images/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a></li>
+              		<li><a href="tel:01234567"><img src="<?=base_url()?>_template/images/call.png" alt="" title="" /><span>Telepon</span></a></li>
+                </ul>
+            </div>
 
-
-            <button type="button" class="btn-close-canvas navbar-toggler navbar-toggler-left d-lg-none align-self-center" data-toggle="offcanvas"><i class="ti ti-close"></i> Close</button>
 
       </nav>
 

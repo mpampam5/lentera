@@ -6,8 +6,8 @@
     <a href="#" data-popup=".popup-social" class="open-popup"><img src="<?=base_url()?>_template/images/icons/white/simpanan.png" alt="" title="" /><span>Simpanan</span></a>
     <a href="photos.html"><img src="<?=base_url()?>_template/images/icons/white/pinjaman.png" alt="" title="" /><span>Pinjaman</span></a>
     <a href="features.html"><img src="<?=base_url()?>_template/images/icons/white/user.png" alt="" title="" /><span>Account</span></a>
-		<a href="videos.html"><img src="<?=base_url()?>_template/images/icons/white/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a>
-		<a href="tel:01234567"><img src="<?=base_url()?>_template/images/icons/white/phone.png" alt="" title="" /><span>Telepon</span></a>
+		<!-- <a href="videos.html"><img src="<?=base_url()?>_template/images/icons/white/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a>
+		<a href="tel:01234567"><img src="<?=base_url()?>_template/images/icons/white/phone.png" alt="" title="" /><span>Telepon</span></a> -->
   </div>
 
 </div>

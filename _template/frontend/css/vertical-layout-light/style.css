@@ -28339,7 +28339,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper {
-  background: #ffffff;
+  background: #292d42;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -28387,12 +28387,12 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper {
-  background: #ffffff;
+  background: #292d42;
   transition: width 0.25s ease;
   -webkit-transition: width 0.25s ease;
   -moz-transition: width 0.25s ease;
   -ms-transition: width 0.25s ease;
-  color: #9b9b9b;
+  color: #28a745;
   padding-left: 2.55rem;
   padding-right: 2.55rem;
   /* width: calc(100% - 237px); */
@@ -28975,7 +28975,7 @@ div.tagsinput span.tag a {
     flex-direction: row;
   }
   .navbar .navbar-brand-wrapper {
-    width: 155px;
+    width: 216px;
   }
   .navbar .navbar-brand-wrapper .navbar-brand.brand-logo {
     display: none;
@@ -28993,7 +28993,7 @@ div.tagsinput span.tag a {
 
 @media (max-width: 480px) {
   .navbar .navbar-brand-wrapper {
-    width: 155px;
+    width: 215px;
   }
   .navbar .navbar-brand-wrapper .brand-logo-mini {
     padding-top: 0px;
