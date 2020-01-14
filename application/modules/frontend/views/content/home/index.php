@@ -1,17 +1,17 @@
 <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/morris.js/morris.css">
-<script src="<?=base_url()?>_template/frontend/vendors/raphael/raphael.min.js"></script>/
+<script src="<?=base_url()?>_template/frontend/vendors/raphael/raphael.min.js"></script>
 <script src="<?=base_url()?>_template/frontend/vendors/morris.js/morris.min.js"></script>
 <!-- <script src="<?=base_url()?>_template/frontend/js/morris.js"></script> -->
 <div class="content-wrapper" style="margin-bottom:35px;">
 
-<div class="row p-2">
+<div class="row p-2 mt-3">
   <div class="col-sm-12">
     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" value="<?=site_url("link/referral/12345")?>">
-                        <div class="input-group-append">
-                          <button class="btn btn-sm btn-primary" type="button">Copy</button>
-                        </div>
-                      </div>
+      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" value="<?=site_url("link/referral/12345")?>">
+      <div class="input-group-append">
+        <button class="btn btn-sm btn-primary" type="button">Copy</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -35,7 +35,7 @@
         <div class="card bg-info">
           <div class="card-body">
             <div class="d-flex flex-row align-items-center">
-              <i class="ti-user icon-lg"></i>
+              <i class="ti-archive icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Jumlah Simpanan</p>
   								<h6 class="">Rp. 1.200.000</h6>
@@ -49,7 +49,7 @@
         <div class="card bg-success">
           <div class="card-body">
             <div class="d-flex flex-row align-items-center">
-              <i class="ti-user icon-lg"></i>
+              <i class="ti-wallet icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Saldo Dompet</p>
   								<h6 class="">Rp. 0</h6>
@@ -63,7 +63,7 @@
         <div class="card bg-warning">
           <div class="card-body">
             <div class="d-flex flex-row align-items-center">
-              <i class="ti-user icon-lg"></i>
+              <i class="ti-stats-up icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Keuntungan</p>
   								<h6 class="">Rp. 30.000.000</h6>
@@ -77,7 +77,7 @@
         <div class="card bg-primary">
           <div class="card-body">
             <div class="d-flex flex-row align-items-center">
-              <i class="ti-user icon-lg"></i>
+              <i class="ti-layers icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Alokasi Pinjaman</p>
   								<h6 class="">Rp. 0</h6>
@@ -91,7 +91,7 @@
         <div class="card bg-dark">
           <div class="card-body">
             <div class="d-flex flex-row align-items-center">
-              <i class="ti-user icon-lg"></i>
+              <i class="ti-files icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Total Tabungan</p>
   								<h6 class="">Rp. 0</h6>
@@ -108,9 +108,9 @@
   <div class="row">
     <div class="col-lg-12 grid-margin stretch-card mt-2">
       <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Simpanan - Pinjaman Tahun 2020</h4>
-          <div id="morris-line-example" style="height:200px"></div>
+        <div class="card-body" style="padding:10px;">
+          <h4 class="card-title text-center">Simpanan - Pinjaman Tahun 2020</h4>
+          <div id="morris-line-example" style="height:200px;margin:5px;"></div>
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@ Morris.Line({
   }, ],
   xkey: 'm',
   ykeys: ['a'],
-  labels: ['Rp.'],
+  labels: ['Simpanan'],
   hideHover:true,
   xLabelFormat: function(x) { // <--- x.getMonth() returns valid index
     var month = months[x.getMonth()];

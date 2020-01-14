@@ -128,7 +128,9 @@
           <button type="button" class="btn-close-canvas navbar-toggler navbar-toggler-left d-lg-none align-self-center" data-toggle="offcanvas"><i class="ti ti-close"></i></button>
 
         <div class="header-menu">
-          <img src="<?=base_url()?>_template/logo.png" alt="">
+          <a href="<?=site_url("frontend/home")?>">
+            <img src="<?=base_url()?>_template/logo.png" alt="">
+          </a>
         </div>
 
           <ul class="main-menu">
