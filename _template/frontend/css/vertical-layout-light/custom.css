@@ -146,30 +146,6 @@ iframe {
   background: linear-gradient(90deg, rgba(36,0,0,0.3113620448179272) 0%, rgba(255,0,0,0.31) 52%, rgba(255,0,0,0.30575980392156865) 100%);
 }
 
-.owl-theme .owl-dots .owl-dot span{
-  background: #ab3838!important;
-}
-
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
-  background: #ff0000!important;
-}
-.owl-carousel.full-width .owl-nav{
-  top: 40%;
-}
-
-.owl-carousel img{
-  border-radius: 0!important;
-  max-height: 250px!important;
-  min-height: 250px!important;
-}
-
-.owl-carousel.full-width .owl-dots{
-  margin-top: 3px;
-}
-
-.owl-theme .owl-nav [class*=owl-]:hover{
-  background: none!important;
-}
 
 .header-menu{
   /* padding: 10px; */
@@ -693,7 +669,7 @@ color: #fff;
 
 
 .widget-dashboard{
-  margin-top: 15px;
+  margin-top: 25px;
   padding: 3px 3px 3px 3px;
   width: 100%;
   overflow-x: scroll!important;
@@ -719,6 +695,9 @@ color: #fff;
   color:#fff;
 }
 
+.widget-dashboard .widget-content .card{
+  border-radius: 10px 10px 10px 10px;
+}
 
 .widget-dashboard .widget-content .card .card-body{
   padding: 0.70rem;
@@ -781,4 +760,59 @@ color: #fff;
   -o-background-size: cover;
   background-size: cover;
   background-position: center center;
+}
+
+.header-banner{
+  height:200px;
+  background: #292d42;
+  position: relative;
+}
+
+.header-banner .banner-main{
+  display: block;
+  text-align: center;
+  /* margin:40px auto; */
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.header-banner .banner-main button.slick-prev, .header-banner .banner-main button.slick-next{
+  display: none!important;
+}
+
+.header-banner .banner-main .banner-image{
+  width: 100%;
+  text-align: center;
+  display: block;
+  height: 200px;
+  position: relative;
+}
+
+.header-banner .banner-main img.image-banner{
+  height: 100%;
+  width: 100%;
+  /* position:absolute;
+  top:0;
+  left: 0;
+  right: 0; */
+}
+
+.slick-dots{
+  display: none!important;
+}
+
+
+
+.header-banner .curve{
+  display: block;
+  position: absolute;
+  width: 100%;
+  bottom: -1%;
+  left: 0;
+  right: 0;
+}
+
+.header-banner .curve img.curve-img{
+  width: 100%;
 }

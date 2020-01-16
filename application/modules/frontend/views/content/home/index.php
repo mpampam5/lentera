@@ -2,18 +2,9 @@
 <script src="<?=base_url()?>_template/frontend/vendors/raphael/raphael.min.js"></script>
 <script src="<?=base_url()?>_template/frontend/vendors/morris.js/morris.min.js"></script>
 <!-- <script src="<?=base_url()?>_template/frontend/js/morris.js"></script> -->
-<div class="content-wrapper" style="margin-bottom:35px;">
+<div class="content-wrapper" style="margin-bottom:75px;">
 
-<div class="row p-2 mt-3">
-  <div class="col-sm-12">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" value="<?=site_url("link/referral/12345")?>">
-      <div class="input-group-append">
-        <button class="btn btn-sm btn-primary" type="button">Copy</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
   <div class="widget-dashboard">
     <div class="d-flex flex-row">
@@ -106,11 +97,23 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-12 grid-margin stretch-card mt-2">
+    <div class="col-lg-12 grid-margin stretch-card mt-4">
       <div class="card">
         <div class="card-body" style="padding:10px;">
           <h4 class="card-title text-center">Simpanan - Pinjaman Tahun 2020</h4>
           <div id="morris-line-example" style="height:200px;margin:5px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row p-2">
+    <div class="col-sm-12">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" value="<?=site_url("link/referral/12345")?>">
+        <div class="input-group-append">
+          <button class="btn btn-sm btn-primary" type="button">Copy</button>
         </div>
       </div>
     </div>
@@ -125,47 +128,59 @@ var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 
 Morris.Line({
   element: 'morris-line-example',
-  lineColors: ['#63CF72', '#F36368'],
+  lineColors: ['#63CF72', '#F36368','#cc3333', '#472526'],
   data: [{
     m: '2020-01', // <-- valid timestamp strings
-    a: 1000000
+    a: 1000000,
+    b:0
   }, {
     m: '2020-02',
-    a: 5466555
+    a: 5466555,
+    b:1000000
   }, {
     m: '2020-03',
-    a: 2436655
+    a: 2436655,
+    b:0
   }, {
     m: '2020-04',
-    a: 2066565
+    a: 2066565,
+    b:0
   }, {
     m: '2020-05',
-    a: 1611555
+    a: 1611555,
+    b:0
   }, {
     m: '2020-06',
-    a: 18700000
+    a: 18700000,
+    b:0
   }, {
     m: '2020-07',
-    a: 210655
+    a: 210655,
+    b:0
   }, {
     m: '2020-08',
-    a: 204565
+    a: 204565,
+    b:1870000
   }, {
     m: '2020-09',
-    a: 22465
+    a: 22465,
+    b:0
   }, {
     m: '2020-10',
-    a: 3017777
+    a: 3017777,
+    b:0
   }, {
     m: '2020-11',
-    a: 26277
+    a: 26277,
+    b:0
   }, {
     m: '2020-12',
-    a: 2199
+    a: 2199,
+    b:0
   }, ],
   xkey: 'm',
-  ykeys: ['a'],
-  labels: ['Simpanan'],
+  ykeys: ['a','b'],
+  labels: ['Simpanan','Pinjaman'],
   hideHover:true,
   xLabelFormat: function(x) { // <--- x.getMonth() returns valid index
     var month = months[x.getMonth()];

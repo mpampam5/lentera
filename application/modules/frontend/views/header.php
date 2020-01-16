@@ -31,10 +31,8 @@
   <div id="preloader"><div class="textload">Loading</div><div id="status"><div class="spinner"></div></div></div>
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <button class="navbar-toggler navbar-toggler-left d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-        <span class="ti-layout-grid2" style="color:#28a745;"></span>
-      </button>
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top  d-flex flex-row">
+
 
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="#">
@@ -46,76 +44,9 @@
       </div>
 
 
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <!-- <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="ti-layout-grid2"></span>
-        </button> -->
-
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="ti-bell mx-0" style="color:#28a745;"></i>
-
-                <span class="count"></span>
-
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-              <a  href="<?=site_url("frontend/jadwal_acara")?>" class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
-                    <i class="fas fa-calendar-alt mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Jadwal Acara</h6>
-
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Terdapat  pembaharuan
-                  </p>
-
-                </div>
-              </a>
-              <a href="<?=site_url("frontend/kegiatan")?>" class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="fas fa-clipboard-list mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Kegiatan</h6>
-
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Terdapat <?=rows_table("kegiatan")?> pembaharuan
-                  </p>
-
-                </div>
-              </a>
-              <a href="<?=site_url("frontend/bantuan")?>" class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="fas fa-hands-helping mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Bantuan Khusus</h6>
-
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Terdapat <?=rows_table("bantuan_khusus")?> pembaharuan
-                  </p>
-
-                </div>
-              </a>
-            </div>
-          </li>
-
-
-
-        </ul>
-        <!-- <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-          <span class="ti-layout-grid2"></span>
-        </button> -->
-      </div>
+      <button class="navbar-toggler navbar-toggler-left d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="ti-layout-grid4" style="color:#28a745;"></span>
+      </button>
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -128,9 +59,9 @@
           <button type="button" class="btn-close-canvas navbar-toggler navbar-toggler-left d-lg-none align-self-center" data-toggle="offcanvas"><i class="ti ti-close"></i></button>
 
         <div class="header-menu">
-          <a href="<?=site_url("frontend/home")?>">
+          <!-- <a href="<?=site_url("frontend/home")?>"> -->
             <img src="<?=base_url()?>_template/logo.png" alt="">
-          </a>
+          <!-- </a> -->
         </div>
 
           <ul class="main-menu">
@@ -157,3 +88,33 @@
 
       <!-- partial -->
       <div class="main-panel">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <div class="header-banner">
+          <div class="banner-main">
+              <div class="banner-image">
+                <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_3.jpg" alt="image"/>
+              </div>
+              <div class="banner-image">
+                <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_2.jpg" alt="image"/>
+              </div>
+              <div class="banner-image">
+                <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_1.jpg" alt="image"/>
+              </div>
+          </div>
+          <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+          <script type="text/javascript">
+          $('.banner-main').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            autoplay: true,
+            });
+          </script>
+
+
+          <div class="curve">
+            <img class="curve-img" src="<?=base_url()?>_template/curve.png" alt="curve">
+          </div>
+        </div>
