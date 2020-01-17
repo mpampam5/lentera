@@ -22,6 +22,9 @@
   background-color: #292d42;
 }
 
+.navbar .navbar-brand-wrapper .brand-logo-mini img{
+  margin : auto 10px!important;
+}
 
 .sidebar{
   background-color: #292d42!important;
@@ -711,6 +714,10 @@ color: #fff;
   color:#fff!important;
 }
 
+.morris-hover.morris-default-style{
+  z-index:9;
+}
+
 
 .popup{
   position: absolute;
@@ -815,4 +822,23 @@ color: #fff;
 
 .header-banner .curve img.curve-img{
   width: 100%;
+}
+
+.navbar-toggler{
+  margin-right: 10px;
+}
+
+
+.btn-logout{
+  display: block;
+  text-align: center;
+}
+
+.btn-logout a{
+  text-decoration: none;
+  font-size: 14px;
+  color:#ffde00;
+  border-radius: 5px;
+  border: 1px solid #ffde00;
+  padding: 10px 10px 10px 10px;
 }

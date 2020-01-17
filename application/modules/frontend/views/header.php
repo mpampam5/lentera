@@ -31,23 +31,7 @@
   <div id="preloader"><div class="textload">Loading</div><div id="status"><div class="spinner"></div></div></div>
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top  d-flex flex-row">
-
-
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="#">
-          <img src="<?=base_url()?>_template/logo-header.png" alt="logo"/>
-        </a>
-        <a class="navbar-brand brand-logo-mini" href="#">
-          <img src="<?=base_url()?>_template/logo-header.png" alt="logo"/>
-        </a>
-      </div>
-
-
-      <button class="navbar-toggler navbar-toggler-left d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-        <span class="ti-layout-grid4" style="color:#28a745;"></span>
-      </button>
-    </nav>
+    <?php $this->load->view("nav-bar") ?>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_settings-panel.html -->
@@ -65,7 +49,7 @@
         </div>
 
           <ul class="main-menu">
-        			<li><a href="index.html"><img src="<?=base_url()?>_template/images/icons/gray/home.png" alt="" title="" /><span>Home</span></a></li>
+        			<li><a href="<?=site_url("frontend/home")?>"><img src="<?=base_url()?>_template/images/icons/gray/home.png" alt="" title="" /><span>Home</span></a></li>
               <li><a href="index.html"><img src="<?=base_url()?>_template/images/icons/gray/group.png" alt="" title="" /><span>Anggota</span></a></li>
               <!-- <li><a href="features.html"><img src="images/icons/gray/book.png" alt="" title="" /><span>Aturan & Sanksi</span></a></li> -->
               <!-- <li><a href="features.html"><img src="images/icons/gray/features.png" alt="" title="" /><span>AD/ART</span></a></li> -->
@@ -84,37 +68,13 @@
             </div>
 
 
+            <div class="btn-logout  mt-5">
+              <a href="#" class=""><i class="fa fa-power-off"></i> Logout</a>
+            </div>
+
+
       </nav>
 
       <!-- partial -->
       <div class="main-panel">
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <div class="header-banner">
-          <div class="banner-main">
-              <div class="banner-image">
-                <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_3.jpg" alt="image"/>
-              </div>
-              <div class="banner-image">
-                <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_2.jpg" alt="image"/>
-              </div>
-              <div class="banner-image">
-                <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_1.jpg" alt="image"/>
-              </div>
-          </div>
-          <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-          <script type="text/javascript">
-          $('.banner-main').slick({
-            dots: true,
-            infinite: true,
-            speed: 500,
-            fade: true,
-            cssEase: 'linear',
-            autoplay: true,
-            });
-          </script>
-
-
-          <div class="curve">
-            <img class="curve-img" src="<?=base_url()?>_template/curve.png" alt="curve">
-          </div>
-        </div>
+      

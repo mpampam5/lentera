@@ -13,6 +13,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/jquery-toast-plugin/jquery.toast.min.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?=base_url()?>_template/frontend/images/favicon.png" />
 
@@ -84,7 +85,7 @@
                 <img src="<?=base_url()?>_template/logo.png" alt="logo">
               </div>
 
-              <form class="pt-3">
+              <form class="pt-3" id="form" action="<?=$action?>">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
@@ -92,8 +93,9 @@
                         <i class="ti-user text-success"></i>
                       </span>
                     </div>
-                    <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Username">
+                    <input type="text" class="form-control form-control-lg border-left-0" name="username" placeholder="Username">
                   </div>
+                  <div id="username"></div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
@@ -102,11 +104,12 @@
                         <i class="ti-lock text-success"></i>
                       </span>
                     </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">
+                    <input type="password" class="password form-control form-control-lg border-left-0" name="password" placeholder="Password">
                   </div>
+                  <div id="password"></div>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">LOG IN</a>
+                  <button type="submit" id="submit" name="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOG IN</button>
                 </div>
 
                 <div class="text-center mt-4 font-weight text-white">
@@ -146,8 +149,101 @@
   <script src="<?=base_url()?>_template/frontend/js/hoverable-collapse.js"></script>
   <script src="<?=base_url()?>_template/frontend/js/template.js"></script>
   <script src="<?=base_url()?>_template/frontend/js/settings.js"></script>
-  <script src="<?=base_url()?>_template/frontend/js/todolist.js"></script>
+  <script src="<?=base_url()?>_template/frontend/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
   <!-- endinject -->
+
+  <script type="text/javascript">
+
+// $(document).on("click","#forgot",function(e){
+//     e.preventDefault();
+//
+//     $('.modal-dialog').removeClass('modal-lg')
+//                       .removeClass('modal-sm')
+//                       .addClass('modal-sm');
+//     $("#modalGue").modal('show');
+//   });
+
+
+  $("#form").submit(function(e){
+    e.preventDefault();
+    var me = $(this);
+    $('#submit').prop('disabled', true)
+                 .html('<i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;Loading...');
+    $.ajax({
+      url      : me.attr('action'),
+      type     : 'POST',
+      data     :me.serialize(),
+      dataType : 'JSON',
+      success:function(json){
+       if (json.success==true) {
+         if (json.valid==true) {
+           window.location.href = json.url;
+         }else {
+           $(".password").val('');
+           $('#submit').prop('disabled', false).text('Login');
+           $.toast({
+             // heading: 'Gagal Login',
+             text: json.alert,
+             showHideTransition: 'slide',
+             icon: 'error',
+             loaderBg: '#3e3e3e',
+             position: 'bottom-left'
+           });
+           $('.text-danger').remove();
+         }
+       }else {
+         $.each(json.alert, function(key, value) {
+           var element = $('#' + key);
+           $('#submit').prop('disabled', false).text('Login');
+           $(element).find('.text-danger').remove();
+           $(element).html(value);
+         });
+       }
+     }
+    });
+  })
+</script>
+<script type="text/javascript">
+
+  $("#form").submit(function(e){
+    e.preventDefault();
+    var me = $(this);
+    $('#submit').prop('disabled', true)
+                 .html('<i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;Loading...');
+    $.ajax({
+      url      : me.attr('action'),
+      type     : 'POST',
+      data     :me.serialize(),
+      dataType : 'JSON',
+      success:function(json){
+       if (json.success==true) {
+         if (json.valid==true) {
+           window.location.href = json.url;
+         }else {
+           $(".password").val('');
+           $('#submit').prop('disabled', false).text('LOGIN');
+           $.toast({
+             // heading: 'Gagal Login',
+             text: json.alert,
+             showHideTransition: 'slide',
+             icon: 'error',
+             loaderBg: '#3e3e3e',
+             position: 'bottom-left'
+           });
+           $('.text-danger').remove();
+         }
+       }else {
+         $.each(json.alert, function(key, value) {
+           var element = $('#' + key);
+           $('#submit').prop('disabled', false).text('Login');
+           $(element).find('.text-danger').remove();
+           $(element).html(value);
+         });
+       }
+     }
+    });
+  })
+</script>
 </body>
 
 

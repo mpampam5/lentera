@@ -2,7 +2,45 @@
 <script src="<?=base_url()?>_template/frontend/vendors/raphael/raphael.min.js"></script>
 <script src="<?=base_url()?>_template/frontend/vendors/morris.js/morris.min.js"></script>
 <!-- <script src="<?=base_url()?>_template/frontend/js/morris.js"></script> -->
-<div class="content-wrapper" style="margin-bottom:75px;">
+
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<div class="header-banner">
+  <div class="banner-main">
+      <div class="banner-image">
+        <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_3.jpg" alt="image"/>
+      </div>
+      <div class="banner-image">
+        <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_2.jpg" alt="image"/>
+      </div>
+      <div class="banner-image">
+        <img class="image-banner" src="<?=base_url()?>_template/frontend/images/carousel/banner_1.jpg" alt="image"/>
+      </div>
+  </div>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script type="text/javascript">
+  $('.banner-main').slick({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear',
+    autoplay: true,
+    });
+  </script>
+
+
+  <div class="curve">
+    <img class="curve-img" src="<?=base_url()?>_template/curve.png" alt="curve">
+  </div>
+</div>
+
+
+
+
+
+
+<div class="content-wrapper" style="margin-bottom:25px;">
 
 
 
@@ -15,7 +53,7 @@
               <i class="ti-user icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Jumlah Anggota</p>
-  								<h6 class="">2</h6>
+  								<h6 class=""><?=jumlah_anggota()?></h6>
   						</div>
             </div>
           </div>
@@ -57,7 +95,7 @@
               <i class="ti-stats-up icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Keuntungan</p>
-  								<h6 class="">Rp. 30.000.000</h6>
+  								<h6 class=""><?=setting("CURRENCY")?>. <?=setting("KEUNTUnGAN_KOPERASI")?></h6>
   						</div>
             </div>
           </div>
@@ -71,7 +109,7 @@
               <i class="ti-layers icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Alokasi Pinjaman</p>
-  								<h6 class="">Rp. 0</h6>
+  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(alokasi_pinjaman())?></h6>
   						</div>
             </div>
           </div>
@@ -85,7 +123,7 @@
               <i class="ti-files icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Total Tabungan</p>
-  								<h6 class="">Rp. 0</h6>
+  								<h6 class=""><?=setting("CURRENCY")?>. 0</h6>
   						</div>
             </div>
           </div>
@@ -100,7 +138,7 @@
     <div class="col-lg-12 grid-margin stretch-card mt-4">
       <div class="card">
         <div class="card-body" style="padding:10px;">
-          <h4 class="card-title text-center">Simpanan - Pinjaman Tahun 2020</h4>
+          <h4 class="card-title text-center">Simpanan - Pinjaman Tahun <?=date("Y")?></h4>
           <div id="morris-line-example" style="height:200px;margin:5px;"></div>
         </div>
       </div>
@@ -108,7 +146,7 @@
   </div>
 
 
-  <div class="row p-2">
+  <div class="row p-2 mb-5">
     <div class="col-sm-12">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" value="<?=site_url("link/referral/12345")?>">

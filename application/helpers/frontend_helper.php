@@ -7,80 +7,47 @@ function setting_system($field)
   return $qry->row()->$field;
 }
 
+function setting($kode = null , $field = "nilai")
+{
+  $ci=& get_instance();
+  $kd = strtoupper($kode);
+  $qry = $ci->db->get_where("tb_lentera_setting",["kode"=>"$kd"]);
+  if ($qry->num_rows() > 0) {
+      return $qry->row()->$field;
+  }else {
+      return "Not available";;
+  }
+}
+
 function sess($str)
 {
    $ci=& get_instance();
   return $ci->session->userdata($str);
 }
 
-function struktur_pengurus_title($id)
-{
-  $ci=get_instance();
-  $query = $ci->model->get_where("struktur_pengurus",["id_kepengurusan"=>$id]);
-  return $query->title;
+function format_rupiah($int)
+  {
+    return number_format($int, 0, ',', '.');
+  }
+
+
+function jumlah_anggota(){
+    $ci=& get_instance();
+    $qry = $ci->db->get_where("tb_anggota",["status"=>"1"]);
+    return $qry->num_rows();
 }
 
-function status_jabatan($id)
-{
-  $ci=get_instance();
-  $query = $ci->model->get_where("status_jabatan",["id"=>$id]);
-  return $query->jabatan;
-}
 
+//balance
 
-function profile($field)
+function alokasi_pinjaman()
 {
   $ci=& get_instance();
-  $qry = $ci->db->select("tb_person.id_person,
-                          tb_person.id_kepengurusan,
-                          tb_person.kd_person,
-                          tb_person.no_sk,
-                          tb_person.masa_berlaku_sk,
-                          tb_person.nik,
-                          tb_person.nama,
-                          tb_person.tempat_lahir,
-                          tb_person.tanggal_lahir,
-                          tb_person.jenis_kelamin,
-                          tb_person.telepon,
-                          tb_person.email,
-                          tb_person.alamat,
-                          tb_person.id_provinsi,
-                          tb_person.id_kabupaten,
-                          tb_person.id_kecamatan,
-                          tb_person.id_kelurahan,
-                          tb_person.foto,
-                          tb_person.is_verifikasi,
-                          tb_person.is_delete,
-                          tb_person.created,
-                          tb_person.modified,
-                          tb_person.id_jabatan,
-                          tb_person.wilayah_keanggotaan,
-                          status_jabatan.jabatan,
-                          struktur_pengurus.struktur_pengurus")
-                  ->from("tb_person")
-                  ->join("struktur_pengurus","struktur_pengurus.id_kepengurusan = tb_person.id_kepengurusan","left")
-                  ->join("status_jabatan","status_jabatan.id = tb_person.id_jabatan","left")
-                  ->where("is_delete","0")
-                  ->where("id_person",$ci->session->userdata("id_person"))
-                  ->get();
-  return $qry->row()->$field;
-}
-
-
-function tampilkan_wilayah($table,$where)
-{
-  $ci=get_instance();
-  $query = $ci->model->get_where($table,$where);
-  return $query->name;
-}
-
-
-function rows_table($table)
-{
-  $date = date("Y-m-d");
-  $ci=get_instance();
-  return $ci->db->where("is_delete","0")
-                ->like("created",$date)
-                ->get("$table")
-                ->num_rows();
+  $qry = $ci->db->query("SELECT
+                            SUM(amount) AS amount
+                         FROM
+                            tb_pinjaman_bayar
+                         WHERE
+                            status='1'");
+  return $qry->row()->amount;
 }
