@@ -42,7 +42,18 @@
 
 <div class="content-wrapper" style="margin-bottom:25px;">
 
+<p class="text-center mt-3" style="font-weight:bold;">Hi, <?=profile("nama")?></p>
 
+<div class="row p-2">
+  <div class="col-sm-12">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" value="<?=site_url("link/referral/12345")?>">
+      <div class="input-group-append">
+        <button class="btn btn-sm btn-primary" type="button">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <div class="widget-dashboard">
     <div class="d-flex flex-row">
@@ -67,7 +78,7 @@
               <i class="ti-archive icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Jumlah Simpanan</p>
-  								<h6 class="">Rp. 1.200.000</h6>
+  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(jumlah_simpanan())?></h6>
   						</div>
             </div>
           </div>
@@ -81,7 +92,7 @@
               <i class="ti-wallet icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Saldo Dompet</p>
-  								<h6 class="">Rp. 0</h6>
+  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(total_balance())?></h6>
   						</div>
             </div>
           </div>
@@ -123,7 +134,7 @@
               <i class="ti-files icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Total Tabungan</p>
-  								<h6 class=""><?=setting("CURRENCY")?>. 0</h6>
+  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(jumlah_deposito())?></h6>
   						</div>
             </div>
           </div>
@@ -134,7 +145,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mb-2">
     <div class="col-lg-12 grid-margin stretch-card mt-4">
       <div class="card">
         <div class="card-body" style="padding:10px;">
@@ -145,17 +156,6 @@
     </div>
   </div>
 
-
-  <div class="row p-2 mb-5">
-    <div class="col-sm-12">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" value="<?=site_url("link/referral/12345")?>">
-        <div class="input-group-append">
-          <button class="btn btn-sm btn-primary" type="button">Copy</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </div>
 <!-- content-wrapper ends -->
@@ -230,3 +230,8 @@ Morris.Line({
   },
 });
 </script>
+
+
+
+
+<?php $this->load->view("menu-footer"); ?>

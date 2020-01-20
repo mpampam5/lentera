@@ -17,13 +17,22 @@
   }
 }
 
+.page-body-wrapper{
+  padding-top: 50px!important;
+}
+
 .navbar{
   /* z-index:1999; */
   background-color: #292d42;
 }
 
+.navbar .navbar-brand-wrapper{
+  height: 50px!important;
+}
+
 .navbar .navbar-brand-wrapper .brand-logo-mini img{
   margin : auto 10px!important;
+  /* height: 50px!important; */
 }
 
 .sidebar{
@@ -841,4 +850,45 @@ color: #fff;
   border-radius: 5px;
   border: 1px solid #ffde00;
   padding: 10px 10px 10px 10px;
+}
+
+
+/* //list anggota */
+.content-anggota{
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.content-anggota ul{
+  list-style: none;
+  padding: 0!important;
+}
+
+.content-anggota ul li.list-anggota{
+  background: #fff;
+  display: block;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 2px;
+  color:#4b4b4b;
+}
+
+.content-anggota ul li.list-anggota a{
+  text-decoration: none;
+  color:#4b4b4b;
+}
+
+.content-anggota ul li.list-anggota a .icon-lg{
+  font-size: 2.875rem!important;
+}
+
+.add-anggota{
+  position: fixed;
+  bottom:20px;
+  right: 20px;
+  font-size: 18px;
+  /* background-color: #007dff; */
+  padding: 14px 15px 14px 15px;
+  /* color:#fff!important; */
+  border-radius:100%;
 }

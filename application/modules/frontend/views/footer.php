@@ -1,5 +1,5 @@
 <!-- partial:../../partials/_footer.html -->
-<?php $this->load->view("menu-footer"); ?>
+
 <!-- partial -->
 </div>
 <!-- main-panel ends -->

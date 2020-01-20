@@ -108,6 +108,8 @@
                   </div>
                   <div id="password"></div>
                 </div>
+
+
                 <div class="mt-3">
                   <button type="submit" id="submit" name="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOG IN</button>
                 </div>
@@ -187,7 +189,7 @@
              showHideTransition: 'slide',
              icon: 'error',
              loaderBg: '#3e3e3e',
-             position: 'bottom-left'
+             position: 'bottom-center'
            });
            $('.text-danger').remove();
          }
@@ -203,47 +205,7 @@
     });
   })
 </script>
-<script type="text/javascript">
 
-  $("#form").submit(function(e){
-    e.preventDefault();
-    var me = $(this);
-    $('#submit').prop('disabled', true)
-                 .html('<i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;Loading...');
-    $.ajax({
-      url      : me.attr('action'),
-      type     : 'POST',
-      data     :me.serialize(),
-      dataType : 'JSON',
-      success:function(json){
-       if (json.success==true) {
-         if (json.valid==true) {
-           window.location.href = json.url;
-         }else {
-           $(".password").val('');
-           $('#submit').prop('disabled', false).text('LOGIN');
-           $.toast({
-             // heading: 'Gagal Login',
-             text: json.alert,
-             showHideTransition: 'slide',
-             icon: 'error',
-             loaderBg: '#3e3e3e',
-             position: 'bottom-left'
-           });
-           $('.text-danger').remove();
-         }
-       }else {
-         $.each(json.alert, function(key, value) {
-           var element = $('#' + key);
-           $('#submit').prop('disabled', false).text('Login');
-           $(element).find('.text-danger').remove();
-           $(element).html(value);
-         });
-       }
-     }
-    });
-  })
-</script>
 </body>
 
 
