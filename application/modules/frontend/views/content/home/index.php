@@ -44,6 +44,14 @@
 
 <p class="text-center mt-3" style="font-weight:bold;">Hi, <?=profile("nama")?></p>
 
+<div class="menu-header">
+  <a href="<?=site_url("frontend/account")?>"><img src="<?=base_url()?>_template/images/icons/green/id-card.png" alt="" title="" /><span>Account</span></a>
+  <a href="<?=site_url("frontend/deposit")?>"><img src="<?=base_url()?>_template/images/icons/green/deposit.png" alt="" title="" /><span>Deposit</span></a>
+	<a href="<?=site_url("frontend/withdraw")?>"><img src="<?=base_url()?>_template/images/icons/green/withdraw.png" alt="" title="" /><span>Withdraw</span></a>
+  <a href="<?=site_url("frontend/mutasi_dompet")?>"><img src="<?=base_url()?>_template/images/icons/green/transaction.png" alt="" title="" /><span>Mutasi Dompet</span></a>
+</div>
+
+
 <div class="row p-2">
   <div class="col-sm-12">
     <div class="input-group">

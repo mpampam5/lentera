@@ -1,10 +1,15 @@
 <?php if (!defined("BASEPATH")) exit("No direct script access allowed");
 
-function setting_system($field)
+function setting_system($kode = null , $field = "nilai")
 {
-  $ci  =& get_instance();
-  $qry = $ci->db->get_where("system",["id"=>999]);
-  return $qry->row()->$field;
+  $ci=& get_instance();
+  $kd = strtoupper($kode);
+  $qry = $ci->db->get_where("tb_setting",["kode"=>"$kd"]);
+  if ($qry->num_rows() > 0) {
+      return $qry->row()->$field;
+  }else {
+      return "Not available";;
+  }
 }
 
 function setting($kode = null , $field = "nilai")
@@ -26,9 +31,24 @@ function sess($str)
 }
 
 function format_rupiah($int)
+{
+  return number_format($int, 0, ',', '.');
+}
+
+function replace_rupiah($int)
   {
-    return number_format($int, 0, ',', '.');
+    return str_replace(".","","$int");
   }
+
+function new_date()
+{
+    $timezone = new DateTimeZone("Asia/Makassar");
+    $dt = new DateTime();
+    $dt->setTimeZone($timezone);
+    $date = $dt->format('Y-m-d H:i:s');
+
+    return $date;
+}
 
 
 function profile($field)
@@ -400,3 +420,120 @@ function jumlah_simpanan()
         $result = $query->row_array();
         return $result['SUM(tb_pinjaman_bayar.amount)'];
     }
+    ///==================================
+
+
+    // CEK APAKAH SUDAH BAYAR SIMPANAN WAJIB
+    function cek_simpanan_pokok()
+    {
+        $ci=&get_instance();
+        $id_anggota = $ci->session->userdata('id_anggota');
+
+        $query = $ci->db->query(' SELECT id_simpanan
+                                    FROM tb_simpanan_pokok
+                                    WHERE id_anggota = "' . $id_anggota . '"');
+
+        if ($query->num_rows() > 0) {
+            return FALSE; // sudah bayar
+        } else {
+            return TRUE;
+        }
+    }
+
+    // CEK APAKAH SUDAH BAYAR SIMPANAN POKOK
+    function cek_simpanan_wajib()
+    {
+      $ci=&get_instance();
+        $id_anggota = $ci->session->userdata('id_anggota');
+
+        $query = $ci->db->query(' SELECT id_simpanan
+                                    FROM tb_simpanan_wajib
+                                    WHERE id_anggota = "' . $id_anggota . '"');
+
+        if ($query->num_rows() > 0) { // sudah bayar simpanan awal
+            $hari_ini = new_date();
+            $tahun_ini = date("Y", strtotime($hari_ini));
+            $bulan_ini = date("m", strtotime($hari_ini));
+
+            $query_simpanan = $ci->db->query(' SELECT id_simpanan FROM tb_simpanan_wajib
+                                                    WHERE MONTH(bulan_tahun)="' . $bulan_ini . '"
+                                                    AND YEAR(bulan_tahun)="' . $tahun_ini . '"
+                                                    AND id_anggota = "' . $id_anggota . '"
+                                                ');
+            $result_simpanan = $query_simpanan->row_array();
+            $simpanan = $result_simpanan['id_simpanan'];
+            if ($simpanan >= 1) {
+                return FALSE;
+            } else {
+                return TRUE;
+            }
+        } else { // belum bayar sama sekali
+            return TRUE;
+        }
+    }
+
+    //GENERATE KODE TRANS DEPOSIT
+    function generate_kodeTR($jenis)
+        {
+          $ci=&get_instance();
+            // cari table dengan kode
+            if ($jenis == "DP") {
+                $table = "tb_deposit";
+            } elseif ($jenis == "WD") {
+                $table = "tb_withdrawal";
+            } elseif ($jenis == "SP") {
+                $table = "tb_simpanan_pokok";
+            } elseif ($jenis == "SW") {
+                $table = "tb_simpanan_wajib";
+            } elseif ($jenis == "SS") {
+                $table = "tb_simpanan_sukarela";
+            } elseif ($jenis == "BS") {
+                $table = "tb_bonus_sponsor";
+            } elseif ($jenis == "BP") {
+                $table = "tb_biaya_pendaftaran";
+            } elseif ($jenis == "DO") {
+                $table = "tb_deposito";
+            } elseif ($jenis == "RO") {
+                $table = "tb_royalti";
+            } elseif ($jenis == "DV") {
+                $table = "tb_deviden";
+            } elseif ($jenis == "PJ") {
+                $table = "tb_pinjaman";
+            } elseif ($jenis == "PB") {
+                $table = "tb_pinjaman_bayar";
+            } elseif ($jenis == "KS") {
+                $table = "tb_komisi_sponsor";
+            } elseif ($jenis == "BU") {
+                $table = "tb_bagi_untung";
+            } elseif ($jenis == "BW") {
+                $table = "tb_biaya_withdraw";
+            } elseif ($jenis == "ST") {
+                $table = "tb_simp_bisa_diambil";
+            } elseif ($jenis == "") {
+                $table = "tb_anggota";
+            }
+
+            $next = $ci->db->query("SHOW TABLE STATUS LIKE '" . $table . "'");
+            $next = $next->row(0);
+            $next->Auto_increment;
+            $nmr = $next->Auto_increment;
+
+            $karakter = strlen($nmr);
+            if ($karakter == 1) {
+                $nomor = "000000" . $nmr;
+            } elseif ($karakter == 2) {
+                $nomor = "00000" . $nmr;
+            } elseif ($karakter == 3) {
+                $nomor = "0000" . $nmr;
+            } elseif ($karakter == 4) {
+                $nomor = "000" . $nmr;
+            } elseif ($karakter == 5) {
+                $nomor = "00" . $nmr;
+            } elseif ($karakter == 6) {
+                $nomor = "0" . $nmr;
+            } else {
+                $nomor = $nmr;
+            }
+
+            return $jenis . "-" . $nomor;
+        }

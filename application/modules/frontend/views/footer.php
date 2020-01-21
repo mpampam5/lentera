@@ -9,20 +9,13 @@
 <!-- container-scroller -->
 
 
-<!-- popup -->
-
-<div class="">
-<div id="popup" class="popup popup-content">
-  <a href="#" onclick="closePopup()" class="close-popup" data-popup=".popup-social"><i class="ti-close"></i></a>
-
-  </div>
-</div>
 <!-- plugins:js -->
 
 <!-- endinject -->
 <!-- Plugin js for this page -->
 <!-- End plugin js for this page -->
 <!-- inject:js -->
+<script src="<?=base_url()?>_template/frontend/vendors/inputmask/dist/jquery.mask.min.js"></script>
 <script src="<?=base_url()?>_template/frontend/js/off-canvas.js"></script>
 <script src="<?=base_url()?>_template/frontend/js/hoverable-collapse.js"></script>
 <script src="<?=base_url()?>_template/frontend/js/template.js"></script>
@@ -44,16 +37,6 @@
 
 })(jQuery);
 
-
-function openPopup() {
-  document.getElementById("popup").style.display = "block";
-  $("#popup").addClass("active");
-}
-
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-  $("#popup").removeClass("active");
-}
 </script>
 </body>
 

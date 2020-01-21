@@ -7,11 +7,11 @@ class MY_Controller extends CI_Controller{
   public function __construct()
     {
       parent::__construct();
-      if ($this->session->userdata("login_anggota") != true) {
-        redirect(site_url("login"),"refresh");
-      }
+      // if ($this->session->userdata("login_anggota") != true) {
+      //   redirect(site_url("login"),"refresh");
+      // }
       $this->load->helper(array("frontend","enc_gue","tanggal_indonesia"));
-      $this->load->library(array("template"));
+      $this->load->library(array("template","user_agent","form_validation"));
     }
 
 

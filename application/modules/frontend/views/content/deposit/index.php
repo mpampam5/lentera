@@ -1,13 +1,13 @@
 <div class="content-wrapper">
 
-  <div class="content-anggota">
+  <div class="content-deposit">
     <ul id="load_data"></ul>
     <div id="load_data_message"></div>
   </div>
 
 <!-- <a href="#" id="tes" >dsa</a> -->
 
-  <a href="<?=site_url("frontend/anggota/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
+  <a href="<?=site_url("frontend/deposit/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
 
 </div>
 <!-- content-wrapper ends -->
@@ -38,7 +38,7 @@ lazzy_loader(limit);
 function load_data(limit, start)
 {
   $.ajax({
-    url:"<?php echo base_url(); ?>frontend/anggota/fetch",
+    url:"<?php echo base_url(); ?>frontend/deposit/fetch",
     method:"POST",
     data:{limit:limit, start:start},
     cache: false,

@@ -1,6 +1,6 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top  d-flex flex-row">
   <?php if ($title !=  "home"): ?>
-  <a href="javascript:history.back()" class="navbar-toggler navbar-toggler-left d-lg-none align-self-center">
+  <a href="<?=$back?>" class="navbar-toggler navbar-toggler-left d-lg-none align-self-center">
     <span class="ti-arrow-left" style="color:#28a745;"></span>
   </a>
   <?php endif; ?>

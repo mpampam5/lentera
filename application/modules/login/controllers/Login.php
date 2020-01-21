@@ -6,6 +6,8 @@ class Login extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
+    $this->load->helper(array("frontend"));
+    $this->load->library(array("user_agent"));
     $this->load->model("Get_model","model");
   }
 
@@ -49,6 +51,17 @@ class Login extends CI_Controller{
                                       'login_anggota' => true
                                     );
                     $this->session->set_userdata($session);
+
+                    $data = [
+                                'id_user' => $row->id_anggota,
+                                'ip_address' => $this->input->ip_address(),
+                                'user_agent' => $_SERVER['HTTP_USER_AGENT'],
+                                'keterangan' => 'anggota',
+                                'date' => new_date()
+                            ];
+
+                    $this->db->insert('login_history', $data);
+
 
                     $json['valid'] = true;
                     $json['url']  = site_url("frontend/home");
