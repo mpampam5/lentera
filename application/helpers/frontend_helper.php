@@ -8,7 +8,7 @@ function setting_system($kode = null , $field = "nilai")
   if ($qry->num_rows() > 0) {
       return $qry->row()->$field;
   }else {
-      return "Not available";;
+      return "Not available";
   }
 }
 
@@ -351,6 +351,9 @@ function jumlah_simpanan()
     function simpanan_pokok($id_anggota = "")
     {
       $ci=&get_instance();
+        if ($id_anggota=="") {
+          $id_anggota = $ci->session->userdata('id_anggota');
+        }
         $query = $ci->db->query(' SELECT SUM(amount)
                                     FROM tb_simpanan_pokok
                                     WHERE id_anggota = "' . $id_anggota . '"');
@@ -358,9 +361,12 @@ function jumlah_simpanan()
         return $result['SUM(amount)'];
     }
 
-    function simpanan_wajib($id_anggota = "")
+    function simpanan_wajib($id_anggota="")
     {
       $ci=&get_instance();
+      if ($id_anggota=="") {
+        $id_anggota = $ci->session->userdata('id_anggota');
+      }
         $query = $ci->db->query(' SELECT SUM(amount)
                                     FROM tb_simpanan_wajib
                                     WHERE id_anggota = "' . $id_anggota . '"');
@@ -371,6 +377,9 @@ function jumlah_simpanan()
     function simpanan_sukarela($id_anggota = "")
     {
       $ci=&get_instance();
+      if ($id_anggota=="") {
+        $id_anggota = $ci->session->userdata('id_anggota');
+      }
         $query = $ci->db->query(' SELECT SUM(amount)
                                     FROM tb_simpanan_sukarela
                                     WHERE id_anggota = "' . $id_anggota . '"');
@@ -381,6 +390,9 @@ function jumlah_simpanan()
     function simpanan_yg_bisa_diambil($id_anggota = "")
     {
       $ci=&get_instance();
+      if ($id_anggota=="") {
+        $id_anggota = $ci->session->userdata('id_anggota');
+      }
         $query = $ci->db->query(' SELECT SUM(amount)
                                     FROM tb_simp_bisa_diambil
                                     WHERE id_anggota = "' . $id_anggota . '"');
@@ -391,6 +403,9 @@ function jumlah_simpanan()
     function simpanan_yg_bisa_diambil_by_tipe($id_anggota = "")
     {
       $ci=&get_instance();
+      if ($id_anggota=="") {
+        $id_anggota = $ci->session->userdata('id_anggota');
+      }
         $query = $ci->db->query(' SELECT SUM(amount)
                                     FROM tb_simp_bisa_diambil
                                     WHERE id_anggota = "' . $id_anggota . '"');
@@ -403,6 +418,9 @@ function jumlah_simpanan()
     function pinjaman($id_anggota = "")
     {
       $ci=&get_instance();
+      if ($id_anggota=="") {
+        $id_anggota = $ci->session->userdata('id_anggota');
+      }
         $query = $ci->db->query(' SELECT SUM(amount)
                                     FROM tb_pinjaman
                                     WHERE id_anggota = "' . $id_anggota . '" AND status ="1"');
@@ -413,6 +431,9 @@ function jumlah_simpanan()
     function pinjaman_bayar($status = "1", $id_anggota = "")
     {
       $ci=&get_instance();
+      if ($id_anggota=="") {
+        $id_anggota = $ci->session->userdata('id_anggota');
+      }
         $query = $ci->db->query(' SELECT SUM(tb_pinjaman_bayar.amount)
                                     FROM tb_pinjaman_bayar, tb_pinjaman
                                     WHERE tb_pinjaman_bayar.id_pinjaman = tb_pinjaman.id_pinjaman
@@ -471,6 +492,7 @@ function jumlah_simpanan()
             return TRUE;
         }
     }
+
 
     //GENERATE KODE TRANS DEPOSIT
     function generate_kodeTR($jenis)
@@ -537,3 +559,16 @@ function jumlah_simpanan()
 
             return $jenis . "-" . $nomor;
         }
+
+
+//
+function cek_waktu_simpanan_wajib($kode_tr)
+{
+  $ci=&get_instance();
+  $qry = $ci->db->get_where("tb_simpanan_wajib",["kode_tr"=>"$kode_tr"]);
+  if ($qry->num_rows() > 0) {
+      return date("F Y",strtotime($qry->row()->bulan_tahun));
+  }else {
+      return "";
+  }
+}

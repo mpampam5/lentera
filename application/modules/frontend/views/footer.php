@@ -8,7 +8,19 @@
 </div>
 <!-- container-scroller -->
 
-
+<div class="modal fade" id="modalGue" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        </div>
+        <div class="modal-body" id="modalContent" style="max-height: 687px; overflow-y: auto;"></div>
+      </div>
+    </div>
+</div>
 <!-- plugins:js -->
 
 <!-- endinject -->
@@ -34,6 +46,12 @@
   $('body').delay(350).css({
       'overflow': 'visible'
   });
+
+  $('#modalGue').on('hide.bs.modal', function () {
+		setTimeout(function(){
+				$('#modalTitle, #modalContent , #modalFooter').html('');
+			}, 500);
+	  });
 
 })(jQuery);
 

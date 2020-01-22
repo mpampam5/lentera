@@ -50,7 +50,7 @@
 
           <ul class="main-menu">
         			<li><a href="<?=site_url("frontend/home")?>"><img src="<?=base_url()?>_template/images/icons/gray/home.png" alt="" title="" /><span>Home</span></a></li>
-              <li><a href="index.html"><img src="<?=base_url()?>_template/images/icons/gray/group.png" alt="" title="" /><span>Anggota</span></a></li>
+              <li><a href="<?=site_url("frontend/anggota")?>"><img src="<?=base_url()?>_template/images/icons/gray/group.png" alt="" title="" /><span>Anggota</span></a></li>
               <!-- <li><a href="features.html"><img src="images/icons/gray/book.png" alt="" title="" /><span>Aturan & Sanksi</span></a></li> -->
               <!-- <li><a href="features.html"><img src="images/icons/gray/features.png" alt="" title="" /><span>AD/ART</span></a></li> -->
         			<li><a href="about.html"><img src="<?=base_url()?>_template/images/icons/gray/money.png" alt="" title="" /><span>Tabungan</span></a></li>
@@ -77,4 +77,3 @@
 
       <!-- partial -->
       <div class="main-panel">
-      

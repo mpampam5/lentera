@@ -7,9 +7,9 @@ class MY_Controller extends CI_Controller{
   public function __construct()
     {
       parent::__construct();
-      // if ($this->session->userdata("login_anggota") != true) {
-      //   redirect(site_url("login"),"refresh");
-      // }
+      if ($this->session->userdata("login_anggota") != true) {
+        redirect(site_url("login"),"refresh");
+      }
       $this->load->helper(array("frontend","enc_gue","tanggal_indonesia"));
       $this->load->library(array("template","user_agent","form_validation"));
     }
@@ -17,16 +17,17 @@ class MY_Controller extends CI_Controller{
 
     function _cek_password($str)
       {
-        if ($row = $this->model->get_where("tb_person",["id_person"=>sess('id_person')])) {
-            $this->load->helper("pass_has");
-            if (pass_decrypt($row->token,$str,$row->password)==true) {
+
+        $qry = $this->db->get_where("tb_anggota",["id_anggota"=>sess('id_anggota')]);
+        if ($qry->num_rows() > 0) {
+            if (password_verify($str, $qry->row()->pass_tr)) {
               return true;
             }else {
-              $this->form_validation->set_message('_cek_password', '* Password Salah');
+              $this->form_validation->set_message('_cek_password', '* Password Transaksi Salah');
               return false;
             }
         }else {
-          $this->form_validation->set_message('_cek_password', '* Password Salah');
+          $this->form_validation->set_message('_cek_password', '* Password Transaksi Salah');
           return false;
         }
       }

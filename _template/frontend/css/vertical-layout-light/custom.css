@@ -963,3 +963,71 @@ color: #fff;
 .content-deposit ul li.list-deposit a p,h6{
   display: block;
 }
+
+
+/* //list withdraw */
+.content-withdraw{
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.content-withdraw ul{
+  list-style: none;
+  padding: 0!important;
+}
+
+.content-withdraw ul li.list-withdraw{
+  background: #fff;
+  display: block;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 2px;
+  color:#4b4b4b;
+}
+
+.content-withdraw ul li.list-withdraw a{
+  text-decoration: none;
+  color:#4b4b4b;
+}
+.content-withdraw ul li.list-withdraw a p,h6{
+  display: block;
+}
+
+/* //list mutasi-dompet */
+.content-mutasi-dompet{
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.content-mutasi-dompet ul{
+  list-style: none;
+  padding: 0!important;
+}
+
+.content-mutasi-dompet ul li.list-mutasi-dompet{
+  background: #fff;
+  display: block;
+  padding: 15px 10px 10px 15px;
+  margin-bottom: 2px;
+  color:#4b4b4b;
+}
+
+.content-mutasi-dompet ul li.list-mutasi-dompet a{
+  text-decoration: none;
+  color:#4b4b4b;
+}
+.content-mutasi-dompet ul li.list-mutasi-dompet a p,h6{
+  display: block;
+}
+
+
+.modal-header {
+  color:#FFF;
+  background-color: #292d42;
+
+}
+
+.modal .modal-dialog .modal-content .modal-header .close span{
+  color:#1fec4e;
+}
