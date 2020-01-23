@@ -8,7 +8,7 @@
             <div class="d-flex flex-row align-items-center mb-2" style=" border-bottom:1px solid #fff;">
               <i class="fa fa-life-ring icon-lg"></i>
               <div class="ml-3">
-                  <p class="mt-2 text-muted card-text">Simpanan Pokok</p>
+                  <p class="mt-2 text-muted card-text" style="text-transform:uppercase">Simpanan Pokok</p>
   								<h6 id="spokok"><?=setting("CURRENCY")?>. <?=format_rupiah(simpanan_pokok())?></h6>
   						</div>
             </div>
@@ -27,11 +27,11 @@
             <div class="d-flex flex-row align-items-center mb-2" style=" border-bottom:1px solid #fff;">
               <i class="fa fa-life-ring icon-lg"></i>
               <div class="ml-3">
-                  <p class="mt-2 text-muted card-text">Simpanan Wajib</p>
-  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(jumlah_simpanan())?></h6>
+                  <p class="mt-2 text-muted card-text" style="text-transform:uppercase">Simpanan Wajib</p>
+  								<h6 id="swajib"><?=setting("CURRENCY")?>. <?=format_rupiah(simpanan_wajib())?></h6>
   						</div>
             </div>
-            <a href="#" class="" style="font-size:14px;color:#fff;text-transform:uppercase"><i class="ti-arrow-circle-right"></i> Klik Untuk Bayar</a>
+            <a href="<?=site_url("frontend/simpanan/form_simpanan_wajib")?>" id="simpanan_wajib" style="font-size:14px;color:#fff;text-transform:uppercase"><i class="ti-arrow-circle-right"></i> Klik Untuk Bayar</a>
           </div>
         </div>
       </div>
@@ -42,11 +42,11 @@
             <div class="d-flex flex-row align-items-center mb-2" style=" border-bottom:1px solid #fff;">
               <i class="fa fa-life-ring icon-lg"></i>
               <div class="ml-3">
-                  <p class="mt-2 text-muted card-text">Simpanan Sukarela</p>
-  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(total_balance())?></h6>
+                  <p class="mt-2 text-muted card-text" style="text-transform:uppercase">Simpanan Sukarela</p>
+  								<h6 id="ssukarela"><?=setting("CURRENCY")?>. <?=format_rupiah(simpanan_sukarela())?></h6>
   						</div>
             </div>
-            <a href="#" class="" style="font-size:14px;color:#fff;text-transform:uppercase"><i class="ti-arrow-circle-right"></i> Klik Untuk Bayar</a>
+            <a href="<?=site_url("frontend/simpanan/form_simpanan_sukarela")?>" id="simpanan_sukarela" style="font-size:14px;color:#fff;text-transform:uppercase"><i class="ti-arrow-circle-right"></i> Klik Untuk Bayar</a>
           </div>
         </div>
       </div>
@@ -57,8 +57,8 @@
             <div class="d-flex flex-row align-items-center mb-2" style=" border-bottom:1px solid #fff;">
               <i class="fa fa-life-ring icon-lg"></i>
               <div class="ml-3">
-                  <p class="mt-2 text-muted card-text">Simpanan Sudah Di Transfer</p>
-  								<h6 class=""><?=setting("CURRENCY")?>. <?=setting("KEUNTUnGAN_KOPERASI")?></h6>
+                  <p class="mt-2 text-muted card-text" style="text-transform:uppercase">Simpanan Sudah Di Transfer</p>
+  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(simpanan_yg_bisa_diambil_by_tipe())?></h6>
   						</div>
             </div>
             <a href="#" class="" style="font-size:14px;color:#fff;text-transform:uppercase">&nbsp;</a>
@@ -86,12 +86,32 @@
 
 <script type="text/javascript">
 
+$(document).on("click","#simpanan_wajib",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-sm')
+                  .removeClass('modal-md')
+                  .addClass('modal-lg');
+$("#modalTitle").text('Pembayaran Simpanan Wajib');
+$('#modalContent').load($(this).attr("href"));
+$("#modalGue").modal('show');
+});
+
 $(document).on("click","#simpanan_pokok",function(e){
   e.preventDefault();
   $('.modal-dialog').removeClass('modal-sm')
                   .removeClass('modal-md')
                   .addClass('modal-lg');
 $("#modalTitle").text('Pembayaran Simpanan Pokok');
+$('#modalContent').load($(this).attr("href"));
+$("#modalGue").modal('show');
+});
+
+$(document).on("click","#simpanan_sukarela",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-sm')
+                  .removeClass('modal-md')
+                  .addClass('modal-lg');
+$("#modalTitle").text('Pembayaran Simpanan Sukarela');
 $('#modalContent').load($(this).attr("href"));
 $("#modalGue").modal('show');
 });

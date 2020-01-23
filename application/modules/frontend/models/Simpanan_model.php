@@ -14,7 +14,7 @@ class Simpanan_model extends CI_Model{
                                      UNION ALL
                                      SELECT kode_tr, id_anggota, amount, date, is_in_saldo FROM tb_simpanan_sukarela
                                          WHERE id_anggota =  $id_anggota
-                                     ORDER BY date DESC
+                                     ORDER BY date DESC, kode_tr DESC
                                      LIMIT $limit OFFSET $start
                                     ");
     return $query;

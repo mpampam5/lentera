@@ -9,6 +9,7 @@ class Mutasi_dompet_model extends CI_Model{
      $this->db->from("tb_report");
      $this->db->where("id_anggota", sess("id_anggota"));
      $this->db->order_by("date", "DESC");
+     $this->db->order_by("kode_tr", "DESC");
      $this->db->limit($limit, $start);
      $query = $this->db->get();
     return $query;

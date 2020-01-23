@@ -367,11 +367,11 @@ function jumlah_simpanan()
       if ($id_anggota=="") {
         $id_anggota = $ci->session->userdata('id_anggota');
       }
-        $query = $ci->db->query(' SELECT SUM(amount)
+        $query = $ci->db->query(' SELECT SUM(amount) AS amount
                                     FROM tb_simpanan_wajib
                                     WHERE id_anggota = "' . $id_anggota . '"');
-        $result = $query->row_array();
-        return $result['SUM(amount)'];
+        $result = $query->row();
+        return $result->amount;
     }
 
     function simpanan_sukarela($id_anggota = "")
@@ -465,6 +465,7 @@ function jumlah_simpanan()
     function cek_simpanan_wajib()
     {
       $ci=&get_instance();
+
         $id_anggota = $ci->session->userdata('id_anggota');
 
         $query = $ci->db->query(' SELECT id_simpanan
@@ -567,8 +568,26 @@ function cek_waktu_simpanan_wajib($kode_tr)
   $ci=&get_instance();
   $qry = $ci->db->get_where("tb_simpanan_wajib",["kode_tr"=>"$kode_tr"]);
   if ($qry->num_rows() > 0) {
-      return date("F Y",strtotime($qry->row()->bulan_tahun));
+      return date("m/Y",strtotime($qry->row()->bulan_tahun));
   }else {
       return "";
+  }
+}
+
+
+//cek Pembayaran simpanan wajib terakhir
+function cek_pembayaran_simpanan_wajib_trakhir()
+{
+  $ci=&get_instance();
+  $qry = $ci->db->select("id_simpanan, id_anggota, bulan_tahun, date")
+                ->from("tb_simpanan_wajib")
+                ->where("id_anggota",sess("id_anggota"))
+                ->order_by("id_simpanan","desc")
+                ->limit(1)
+                ->get();
+  if ($qry->num_rows() > 0) {
+      return "Simpanan Wajib Terakhir Pada bulan ".date("m/Y",strtotime($qry->row()->bulan_tahun));
+  }else {
+      return "Anda Belum Membayar Simpanan Wajib";
   }
 }

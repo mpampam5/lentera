@@ -24,6 +24,12 @@ class Mutasi_dompet extends MY_Controller{
     {
      foreach($data->result() as $row)
      {
+       $kode = substr($row->kode_tr, 0, 2);
+      if ($kode == "SW") {
+          $stts = "Untuk Bulan ".cek_waktu_simpanan_wajib($row->kode_tr);
+      } else{
+         $stts = "";
+      }
       $output .= '<li class="list-mutasi-dompet">
                       <a>
                         <div class="">
@@ -32,7 +38,7 @@ class Mutasi_dompet extends MY_Controller{
                           <p class="text-muted card-text"><i class="ti-angle-double-right"></i> Debit : Rp.'.format_rupiah($row->debit).'</p>
                           <p class="text-muted card-text"><i class="ti-angle-double-left"></i> Credit : Rp.'.format_rupiah($row->credit).'</p>
                           <h6 class="text-muted" style="font-size:14px!important;"><i class="ti-wallet"></i> Sisa Saldo Dompet : Rp.'.format_rupiah($row->saldo).'</h6>
-                          <p class="text-muted card-text" style="text-transform:uppercase;font-size:12px;">'.$row->deskripsi.'</p>
+                          <p class="text-muted card-text" style="text-transform:uppercase;font-size:11px;">'.$row->deskripsi.' '.$stts.'</p>
                         </div>
                       </a>
                     </li>';

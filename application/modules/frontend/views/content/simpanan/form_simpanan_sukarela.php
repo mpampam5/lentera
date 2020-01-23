@@ -1,19 +1,22 @@
 <ul>
+  <li>Simpanan sukarela minimal Rp. 50.000</li>
+  <li>Anda akan mendapatkan bagi untung sebesar 0-10% per bulan selama 1 tahun.</li>
   <li>Saldo Dompet Anda <b>Rp. <?=format_rupiah(total_balance())?></b></li>
 </ul>
 
-<form class="mt-4" action="<?=site_url("frontend/simpanan/action_simpanan_pokok")?>" id="form" autocomplete="off">
+<form class="mt-4" action="<?=site_url("frontend/simpanan/action_simpanan_sukarela")?>" id="form" autocomplete="off">
 
   <div class="form-group">
-    <label for="">Biaya Simpanan Pokok (Rp)</label>
-    <input type="text" class="form-control" value="<?=format_rupiah(setting("SIMPANAN_POKOK"))?>" id="amount" name="amount" readonly style="font-weight:bold;color:#d90b0b">
+    <label for="">Biaya Simpanan Sukarela (Rp)</label>
+    <input type="text" class="form-control rupiah" id="amount" name="amount">
   </div>
+
   <div class="form-group">
     <label for="">Password Transaksi</label>
     <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password Transaksi">
   </div>
 
-  <p class="text-center mt-4">Yakin Ingin Membayar Simpanan Pokok?</p>
+  <p class="text-center mt-4">Yakin Ingin Membayar Simpanan Sukarela?</p>
   <div class="mt-5 text-center">
     <button type='button' class='btn btn-secondary text-white btn-md' data-dismiss='modal'>Batal</button>
     <button type="submit" id="submit" name="submit" class="btn btn-primary btn-md">Bayar</button>
@@ -21,7 +24,11 @@
 </form>
 
 
+
 <script type="text/javascript">
+$(document).ready(function(){
+  $('.rupiah').mask('00.000.000.000', {reverse: true});
+});
 
 $("#form").submit(function(e){
 e.preventDefault();
@@ -37,10 +44,7 @@ $.ajax({
       processData     :false,
       success:function(json){
         if (json.success==true) {
-          $("#simpanan_pokok").html("LUNAS");
-          $("#simpanan_pokok").removeAttr("href");
-          $("#simpanan_pokok").removeAttr("id");
-          $("#spokok").html("Rp. "+$("#amount").val());
+          $("#ssukarela").html(json.saldo);
             $("#modalGue").modal('hide');
             $('#load_data').html("");
               lazzy_loader(10);
