@@ -71,7 +71,7 @@
   </div>
 
   <div class="content-deposit">
-    <h6 class="text-center mb-4">Laporan Mutasi Simpanan</h6>
+    <h6 class="text-center mt-2 mb-4">LAPORAN MUTASI SIMPANAN</h6>
     <ul id="load_data"></ul>
     <div id="load_data_message"></div>
   </div>

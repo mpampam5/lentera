@@ -25,6 +25,13 @@
 
   <script src="<?=base_url()?>_template/frontend/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<style media="screen">
+  select.form-control:focus{
+    outline: 1px solid #c9ccd7!important;
+  }
+</style>
+
+
 </head>
 
 <body>

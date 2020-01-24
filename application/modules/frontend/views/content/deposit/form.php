@@ -1,8 +1,4 @@
-<style media="screen">
-  select.form-control:focus{
-    outline: 1px solid #c9ccd7!important;
-  }
-</style>
+
 <div class="content-wrapper p-5">
   <?php if (setting("deposit","status")=="0"): ?>
       <div class="mt-5 text-center">

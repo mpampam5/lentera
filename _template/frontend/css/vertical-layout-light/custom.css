@@ -520,6 +520,7 @@ ul.main-menu li:last-child, ul.main-menu li:nth-last-child(2), ul.main-menu li:n
   outline: 0!important;
 }
 
+
 .register .form-group .form-control:focus{
  border-bottom: 2px solid #e06666!important;
  transition-property: left right;
@@ -724,7 +725,7 @@ color: #fff;
 
 .widget-dashboard{
   margin-top: 25px;
-  padding: 3px 3px 3px 3px;
+  padding: 3px 10px 3px 3px;
   width: 100%;
   overflow-x: scroll!important;
   white-space: nowrap!important;
@@ -1030,4 +1031,41 @@ color: #fff;
 
 .modal .modal-dialog .modal-content .modal-header .close span{
   color:#1fec4e;
+}
+
+/* //menu pinjaman */
+
+.menu-pinjaman{
+  width: 100%;
+  height: auto;
+  /* text-align:center; */
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+}
+
+.menu-pinjaman a.list-pinjaman{
+  padding: 20px 5px 20px 5px;
+  margin: 6px 3px 3px 3px;
+  border: 2px dotted #1299cb;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #12cba4;
+  text-align: center;
+  text-decoration: none;
+  display: inline-grid;
+  width: 40%;
+  max-width: 40%;
+}
+
+.menu-pinjaman a.list-pinjaman img{
+  margin: auto;
+  width: 50px;
+}
+
+.menu-pinjaman a.list-pinjaman span{
+  margin-top: 10px;
+  color:#fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 9px;
 }

@@ -591,3 +591,14 @@ function cek_pembayaran_simpanan_wajib_trakhir()
       return "Anda Belum Membayar Simpanan Wajib";
   }
 }
+
+
+function get_ket_pinjaman()
+{
+  $ci=&get_instance();
+    $ci->db->select("id_setting_pinjaman, jangka_waktu, bunga");
+    $ci->db->where("status","1");
+    $ci->db->from("pinjaman");
+    $ci->db->order_by("jangka_waktu", "ASC");
+    return $ci->db->get()->result();
+}

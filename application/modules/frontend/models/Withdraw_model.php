@@ -5,8 +5,18 @@ class Withdraw_model extends CI_Model{
 
   function fetch_data($limit, $start)
    {
-      $this->db->select("*");
+      $this->db->select("tb_withdrawal.id_withdrawal,
+                          tb_withdrawal.kode_tr,
+                          tb_withdrawal.id_anggota,
+                          tb_withdrawal.amount,
+                          tb_withdrawal.amount_request,
+                          tb_withdrawal.gateway,
+                          tb_withdrawal.no_rek,
+                          tb_withdrawal.date,
+                          tb_withdrawal.status,
+                          tb_biaya_withdraw.amount AS biaya_admin");
       $this->db->from("tb_withdrawal");
+      $this->db->join("tb_biaya_withdraw","tb_biaya_withdraw.id_withdrawal = tb_withdrawal.id_withdrawal","left");
       $this->db->where("id_anggota", sess("id_anggota"));
       $this->db->order_by("date", "DESC");
       $this->db->limit($limit, $start);

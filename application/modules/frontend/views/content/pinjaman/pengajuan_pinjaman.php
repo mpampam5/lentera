@@ -1,6 +1,6 @@
-<?php if (setting("simpanan","status")!="1"): ?>
+<?php if (setting("pinjaman","status")!="1"): ?>
   <div class="mt-5 text-center">
-    <h6 class="text-center mt-5 pb-4" style="font-size:14px;line-height:18px"> MOHON MAAF<br> SAAT INI LAYANAN SIMPANAN WAJIB DI TUTUP</h6>
+    <h6 class="text-center mt-5 pb-4" style="font-size:14px;line-height:18px"> MOHON MAAF<br> SAAT INI LAYANAN PENGAJUAN PINJAMAN DI TUTUP</h6>
     <img src="<?=base_url("_template/images/smiling-face.png")?>" width="80" alt="" class="pb-4">
     <p class="text-primary mt-3">Info Lebih Lanjut Hubungi CS Kami: </p>
     <ul style="list-style:none">
@@ -9,40 +9,49 @@
     </ul>
   </div>
   <?php else: ?>
-    <div class="alert alert-primary text-center" style="font-size:11px;text-transform:uppercase">
-      <?=cek_pembayaran_simpanan_wajib_trakhir()?>
-    </div>
-
-    <ul>
-      <li>Saldo Dompet Anda <b>Rp. <?=format_rupiah(total_balance())?></b></li>
-    </ul>
-
-    <form class="mt-4" action="<?=site_url("frontend/simpanan/action_simpanan_wajib")?>" id="form" autocomplete="off">
-
+    <form id="form" action="<?=site_url("frontend/pinjaman/action_pengajuan_pinjaman")?>" autocomplete="off">
       <div class="form-group">
-        <label for="">Biaya simpanan wajib (Rp) / bulan</label>
-        <input type="text" class="form-control" value="<?=format_rupiah(setting("SIMPANAN_WAJIB"))?>" id="amount" name="amount" readonly style="font-weight:bold;color:#d90b0b">
+        <label for="">Jumlah Pinjaman (Rp)</label>
+        <input type="text" class="form-control rupiah" id="nilai" name="nilai" placeholder="">
       </div>
 
       <div class="form-group">
-        <label for="">Jumlah bulan yang akan dibayar</label>
-        <input type="number" class="form-control" id="bulan" name="bulan" placeholder="jumlah Bulan">
+        <label for="">Jangka Waktu Pinjaman</label>
+        <select class="form-control" id="jangka" name="jangka" style="color:#333333">
+          <option value=""> -- pilih --</option>
+          <?php foreach (get_ket_pinjaman() as $pj): ?>
+            <option value="<?=$pj->id_setting_pinjaman?>"><?=$pj->jangka_waktu?> Bulan</option>
+          <?php endforeach; ?>
+        </select>
       </div>
 
       <div class="form-group">
-        <label for="">Password transaksi</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password Transaksi">
+        <label for="">Berapa Kali Angsuran</label>
+        <input type="number" class="form-control" id="angsuran" name="angsuran" placeholder="">
       </div>
 
-      <p class="text-center mt-4">Yakin Ingin Membayar Simpanan Wajib?</p>
+      <div class="form-group">
+        <label for="">Keterangan</label>
+        <textarea class="form-control" id="keterangan" name="keterangan" placeholder="" rows="3" cols="80"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="">Password Transaksi</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="">
+      </div>
+
+
+      <p class="text-center mt-4">Yakin Ingin Mengajukan Pinjaman?</p>
       <div class="mt-5 text-center">
         <button type='button' class='btn btn-secondary text-white btn-md' data-dismiss='modal'>Batal</button>
-        <button type="submit" id="submit" name="submit" class="btn btn-primary btn-md">Bayar</button>
+        <button type="submit" id="submit" name="submit" class="btn btn-primary btn-md">Ajukan Pinjaman</button>
       </div>
     </form>
 
-
     <script type="text/javascript">
+    $(document).ready(function(){
+      $('.rupiah').mask('00.000.000.000', {reverse: true});
+    });
 
     $("#form").submit(function(e){
     e.preventDefault();
@@ -58,21 +67,19 @@
           processData     :false,
           success:function(json){
             if (json.success==true) {
-              $("#swajib").html(json.saldo);
+              // $("#tpinjaman").html(json.saldo);
                 $("#modalGue").modal('hide');
-                $('#load_data').html("");
-                  lazzy_loader(10);
-                  load_data(10, 0);
                 $.toast({
                   text: json.alert,
                   showHideTransition: 'slide',
                   icon: 'success',
                   loaderBg: '#f96868',
-                  position: 'bottom-right'
+                  position: 'bottom-right',
+                  hideAfter: 4000
                 });
             }else {
               $("#submit").prop('disabled',false)
-                          .html('Bayar');
+                          .html('Ajukan Pinjaman');
               $.each(json.alert, function(key, value) {
                 var element = $('#' + key);
                 $(element)

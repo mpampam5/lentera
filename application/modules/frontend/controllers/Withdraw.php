@@ -25,19 +25,21 @@ class Withdraw extends MY_Controller{
      foreach($data->result() as $row)
      {
        if ($row->status=="0") {
-         $status = "<span class='text-warning'>Menunggu Verifikasi</span>";
+         $status = '<h6 class="text-muted card-text" style="font-size:12px"><span class="text-warning">Menunggu Verifikasi</span></h6>';
        }elseif ($row->status=="1") {
-         $status = "<span class='text-success'>DANA TELAH DIKIRIM KE REK ".$row->gateway." - ".$row->no_rek."</span>";
+         $status = '<h6 class="text-muted card-text" style="font-size:14px"><i class="fa fa-user"></i> Biaya Admin : Rp.'.format_rupiah($row->biaya_admin).'</h6>
+                    <h6 class="text-muted card-text" style="font-size:14px"><i class="fa fa-circle"></i> Total : Rp.'.format_rupiah($row->amount).'</h6>
+                    <h6 class="text-muted card-text" style="font-size:12px"><span class="text-success">DANA TELAH DIKIRIM KE REK '.$row->gateway.' - '.$row->no_rek.'</span></h6>';
        }elseif ($row->status=="9") {
-         $status = "<span class='text-danger'>Dibatalkan Oleh Admin</span>";
+         $status = '<h6 class="text-muted card-text" style="font-size:12px"><span class="text-danger">DIBATALKAN OLEH ADMIN</span></h6>';
        }
       $output .= '<li class="list-withdraw">
                       <a>
                         <div class="">
                           <h6 class="text-muted" style="font-size:14px!important;">KD.Transaksi #'.$row->kode_tr.'</h6>
-                          <h6 class="text-muted" style="font-size:14px!important;"><i class="ti-wallet"></i> Jumlah Withdraw : Rp.'.format_rupiah($row->amount).'</h6>
-                          <p class="text-muted card-text"><i class="fa fa-calendar"></i> Tanggal Withdraw : '.date("d/m/Y H:i",strtotime($row->date)).'</p>
-                          <p class="text-muted card-text" style="font-size:12px"><i class="fa fa-filter"></i> '.$status.'</p>
+                          <h6 class="text-muted card-text"><i class="fa fa-calendar"></i> Waktu : '.date("d/m/Y H:i",strtotime($row->date)).'</h6>
+                          <h6 class="text-muted" style="font-size:14px!important;"><i class="ti-wallet"></i> Withdraw Request : Rp.'.format_rupiah($row->amount_request).'</h6>
+                           '.$status.'
                         </div>
                       </a>
                     </li>';
