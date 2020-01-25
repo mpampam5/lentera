@@ -44,6 +44,8 @@ class Deposit extends MY_Controller{
                     </li>';
      }
 
+    }else {
+      $output.='<p class="text-center mt-5" style="font-style:italic">Data Belum Ada</p>';
     }
     echo $output;
   }
