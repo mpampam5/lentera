@@ -1,19 +1,12 @@
 <style media="screen">
-  .card-body{
-    padding: 3px!important;
-  }
-
   table tr td{
-    padding:3px 3px 15px 2px;
+    padding:3px 3px 15px 1px;
     font-size: 14px;
     margin-bottom: 20px;
   }
 </style>
-<div class="content-wrapper">
-  <div class="content-anggota" style="margin-top:0">
-    <div class="card">
-      <div class="card-body">
-        <table class="mt-3">
+
+        <table>
 
           <tr>
             <td>Status</td>
@@ -96,8 +89,7 @@
           </tr>
         </table>
 
-      </div>
-    </div>
-  </div>
-</div>
-<!-- content-wrapper ends -->
+        <hr>
+        <div class="text-center mt-3">
+          <button type='button' class='btn btn-secondary text-white btn-md' data-dismiss='modal'>TUTUP</button>
+        </div>

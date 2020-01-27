@@ -90,6 +90,45 @@ function profile($field)
   return $qry->$field;
 }
 
+function profile_member($id,$field)
+{
+  $ci=&get_instance();
+  $qry = $ci->db->select("id_anggota,
+                          id_parent,
+                          no_anggota,
+                          username,
+                          password,
+                          nama,
+                          email,
+                          tempat_lahir,
+                          tanggal_lahir,
+                          no_ktp,
+                          no_hp,
+                          alamat,
+                          kecamatan,
+                          kelurahan,
+                          kota,
+                          provinsi,
+                          kode_pos,
+                          pekerjaan,
+                          jabatan,
+                          perusahaan,
+                          alamat_perusahaan,
+                          kota_perusahaan,
+                          pendidikan,
+                          pass_tr,
+                          join_date,
+                          status,
+                          is_active,
+                          bank,
+                          no_rekening")
+                  ->from("tb_anggota")
+                  ->where("id_anggota", $id)
+                  ->get()
+                  ->row();
+  return $qry->$field;
+}
+
 function jumlah_anggota(){
     $ci=& get_instance();
     $qry = $ci->db->get_where("tb_anggota",["status"=>"1"]);
@@ -593,6 +632,16 @@ function cek_pembayaran_simpanan_wajib_trakhir()
 }
 
 
+function jumlah_pinjaman()
+{
+  $ci=&get_instance();
+  $query1 = $ci->db->query(" SELECT SUM(amount)
+                              FROM tb_pinjaman WHERE status='1'");
+  $result1 = $query1->row_array();
+  return $result1['SUM(amount)'];
+}
+
+
 function get_ket_pinjaman()
 {
   $ci=&get_instance();
@@ -602,3 +651,33 @@ function get_ket_pinjaman()
     $ci->db->order_by("jangka_waktu", "ASC");
     return $ci->db->get()->result();
 }
+
+
+//no Anggota
+function generate_NO_ANGGOTA()
+    {
+        $ci=&get_instance();
+        $next = $ci->db->query("SHOW TABLE STATUS LIKE 'tb_anggota'");
+        $next = $next->row(0);
+        $next->Auto_increment;
+        $nmr = $next->Auto_increment;
+
+        $karakter = strlen($nmr);
+        if ($karakter == 1) {
+            $nomor = "000000" . $nmr;
+        } elseif ($karakter == 2) {
+            $nomor = "00000" . $nmr;
+        } elseif ($karakter == 3) {
+            $nomor = "0000" . $nmr;
+        } elseif ($karakter == 4) {
+            $nomor = "000" . $nmr;
+        } elseif ($karakter == 5) {
+            $nomor = "00" . $nmr;
+        } elseif ($karakter == 6) {
+            $nomor = "0" . $nmr;
+        } else {
+            $nomor = $nmr;
+        }
+
+        return $nomor;
+    }

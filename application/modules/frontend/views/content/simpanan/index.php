@@ -1,87 +1,50 @@
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin-bottom:25px;">
 
-  <div class="widget-dashboard mb-3">
-    <div class="d-flex flex-row">
-      <div class="widget-content">
-        <div class="card bg-danger">
-          <div class="card-body">
-            <div class="d-flex flex-row align-items-center mb-2" style=" border-bottom:1px solid #fff;">
-              <i class="fa fa-life-ring icon-lg"></i>
-              <div class="ml-3">
-                  <p class="mt-2 text-muted card-text" style="text-transform:uppercase">Simpanan Pokok</p>
-  								<h6 id="spokok"><?=setting("CURRENCY")?>. <?=format_rupiah(simpanan_pokok())?></h6>
-  						</div>
-            </div>
-            <?php if (simpanan_pokok() > 0): ?>
-                <a  style="font-size:14px;color:#fff;text-transform:uppercase"> LUNAS</a>
-              <?php else: ?>
-                <a href="<?=site_url("frontend/simpanan/form_simpanan_pokok")?>" id="simpanan_pokok" class="" style="font-size:14px;color:#fff;text-transform:uppercase"><i class="ti-arrow-circle-right"></i> Klik Untuk Bayar</a>
-            <?php endif; ?>
-          </div>
-        </div>
-      </div>
+  <div class="menu-pinjaman">
+    <a href="<?=site_url("frontend/simpanan/form_simpanan_pokok")?>" id="simpanan_pokok" id="pengajuan_pinjaman" class="list-pinjaman">
+      <img src="<?=base_url()?>_template/images/simpanan_pokok.png" alt="">
+      <span>SIMPANAN POKOK</span>
+    </a>
 
-      <div class="widget-content">
-        <div class="card bg-info">
-          <div class="card-body">
-            <div class="d-flex flex-row align-items-center mb-2" style=" border-bottom:1px solid #fff;">
-              <i class="fa fa-life-ring icon-lg"></i>
-              <div class="ml-3">
-                  <p class="mt-2 text-muted card-text" style="text-transform:uppercase">Simpanan Wajib</p>
-  								<h6 id="swajib"><?=setting("CURRENCY")?>. <?=format_rupiah(simpanan_wajib())?></h6>
-  						</div>
-            </div>
-            <a href="<?=site_url("frontend/simpanan/form_simpanan_wajib")?>" id="simpanan_wajib" style="font-size:14px;color:#fff;text-transform:uppercase"><i class="ti-arrow-circle-right"></i> Klik Untuk Bayar</a>
-          </div>
-        </div>
-      </div>
+    <a href="<?=site_url("frontend/simpanan/form_simpanan_wajib")?>" id="simpanan_wajib" class="list-pinjaman">
+      <img src="<?=base_url()?>_template/images/simpanan_wajib.png" alt="">
+      <span>SIMPANAN WAJIB</span>
+    </a>
 
-      <div class="widget-content">
-        <div class="card bg-success">
-          <div class="card-body">
-            <div class="d-flex flex-row align-items-center mb-2" style=" border-bottom:1px solid #fff;">
-              <i class="fa fa-life-ring icon-lg"></i>
-              <div class="ml-3">
-                  <p class="mt-2 text-muted card-text" style="text-transform:uppercase">Simpanan Sukarela</p>
-  								<h6 id="ssukarela"><?=setting("CURRENCY")?>. <?=format_rupiah(simpanan_sukarela())?></h6>
-  						</div>
-            </div>
-            <a href="<?=site_url("frontend/simpanan/form_simpanan_sukarela")?>" id="simpanan_sukarela" style="font-size:14px;color:#fff;text-transform:uppercase"><i class="ti-arrow-circle-right"></i> Klik Untuk Bayar</a>
-          </div>
-        </div>
-      </div>
+    <a href="<?=site_url("frontend/simpanan/form_simpanan_sukarela")?>" id="simpanan_sukarela" class="list-pinjaman">
+      <img src="<?=base_url()?>_template/images/business-and-finance.png" alt="">
+      <span>SIMPANAN SUKARELA</span>
+    </a>
 
-      <div class="widget-content">
-        <div class="card bg-warning">
-          <div class="card-body">
-            <div class="d-flex flex-row align-items-center mb-2" style=" border-bottom:1px solid #fff;">
-              <i class="fa fa-life-ring icon-lg"></i>
-              <div class="ml-3">
-                  <p class="mt-2 text-muted card-text" style="text-transform:uppercase">Simpanan Sudah Di Transfer</p>
-  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(simpanan_yg_bisa_diambil_by_tipe())?></h6>
-  						</div>
-            </div>
-            <a href="#" class="" style="font-size:14px;color:#fff;text-transform:uppercase">&nbsp;</a>
-          </div>
-        </div>
-      </div>
+    <a href="<?=site_url("frontend/simpanan/laporan_mutasi_simpanan")?>" class="list-pinjaman">
+      <img src="<?=base_url()?>_template/images/bank-statement.png" alt="">
+      <span>LAPORAN MUTASI SIMPANAN</span>
+    </a>
 
+    <a href="<?=site_url("frontend/simpanan/bagi_untung")?>" class="list-pinjaman">
+      <img src="<?=base_url()?>_template/images/bagi-untung.png" alt="">
+      <span>BAGI UNTUNG</span>
+    </a>
 
-    </div>
+    <a href="<?=site_url("frontend/simpanan/komisi_promosi")?>" class="list-pinjaman">
+      <img src="<?=base_url()?>_template/images/user-network.png" alt="">
+      <span>KOMISI PROMOSI</span>
+    </a>
+
   </div>
 
-  <div class="content-deposit">
-    <h6 class="text-center mt-2 mb-4">LAPORAN MUTASI SIMPANAN</h6>
-    <ul id="load_data"></ul>
-    <div id="load_data_message"></div>
+
+
+  <div class="mt-4 p-3">
+    <ul style="font-size:12px;list-style:none">
+      <li><i class="fa fa-check-square"></i> Jumlah Simpanan Pokok <b id="spokok">Rp.<?=format_rupiah(simpanan_pokok())?></b></li>
+      <li><i class="fa fa-check-square"></i> Jumlah Simpanan Wajib <b id="swajib">Rp.<?=format_rupiah(simpanan_wajib())?></b></li>
+      <li><i class="fa fa-check-square"></i> Jumlah Simpanan Sukarela <b id="ssukarela">Rp.<?=format_rupiah(simpanan_sukarela())?></b></li>
+      <li><i class="fa fa-check-square"></i> Jumlah Simpanan Sudah Di Transfer <b>Rp.<?=format_rupiah(simpanan_yg_bisa_diambil_by_tipe())?></b></li>
+    </ul>
   </div>
-
-<!-- <a href="#" id="tes" >dsa</a> -->
-
-  <!-- <a href="<?=site_url("frontend/simpanan/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a> -->
-
 </div>
-<!-- content-wrapper ends -->
+
 
 
 <script type="text/javascript">
@@ -115,66 +78,4 @@ $("#modalTitle").text('Pembayaran Simpanan Sukarela');
 $('#modalContent').load($(this).attr("href"));
 $("#modalGue").modal('show');
 });
-
-
-var limit = 10;
-var start = 0;
-var action = 'inactive';
-
-function lazzy_loader(limit)
-{
-  var output = '<p class="text-center"><img src="<?=base_url()?>_template/preloader.svg" style="width:60px;height:60px;"></p>';
-  $('#load_data_message').html(output);
-}
-
-// $("#tes").click(function(){
-//   $('#load_data').html("");
-//   lazzy_loader(limit);
-//   load_data(limit, start);
-// })
-
-lazzy_loader(limit);
-
-function load_data(limit, start)
-{
-  $.ajax({
-    url:"<?php echo base_url(); ?>frontend/simpanan/fetch",
-    method:"POST",
-    data:{limit:limit, start:start},
-    cache: false,
-    success:function(data)
-    {
-      if(data == '')
-      {
-        $('#load_data_message').html('');
-        action = 'active';
-      }
-      else
-      {
-        $('#load_data').append(data);
-        $('#load_data_message').html('');
-        action = 'inactive';
-      }
-    }
-  })
-}
-
-if(action == 'inactive')
-{
-  action = 'active';
-  load_data(limit, start);
-}
-
-$(window).scroll(function(){
-  if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
-  {
-    lazzy_loader(limit);
-    action = 'active';
-    start = start + limit;
-    setTimeout(function(){
-      load_data(limit, start);
-    }, 1000);
-  }
-});
-
 </script>

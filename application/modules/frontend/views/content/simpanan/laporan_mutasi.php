@@ -1,14 +1,21 @@
 <div class="content-wrapper">
+
+
   <div class="content-deposit">
+    <!-- <h6 class="text-center mt-2 mb-4">LAPORAN MUTASI SIMPANAN</h6> -->
     <ul id="load_data"></ul>
     <div id="load_data_message"></div>
   </div>
+
+<!-- <a href="#" id="tes" >dsa</a> -->
+
+  <!-- <a href="<?=site_url("frontend/simpanan/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a> -->
+
 </div>
 <!-- content-wrapper ends -->
 
 
 <script type="text/javascript">
-
 
 
 var limit = 10;
@@ -21,13 +28,18 @@ function lazzy_loader(limit)
   $('#load_data_message').html(output);
 }
 
+// $("#tes").click(function(){
+//   $('#load_data').html("");
+//   lazzy_loader(limit);
+//   load_data(limit, start);
+// })
 
 lazzy_loader(limit);
 
 function load_data(limit, start)
 {
   $.ajax({
-    url:"<?php echo base_url(); ?>frontend/pinjaman/fetch_pinjaman",
+    url:"<?php echo base_url(); ?>frontend/simpanan/fetch",
     method:"POST",
     data:{limit:limit, start:start},
     cache: false,

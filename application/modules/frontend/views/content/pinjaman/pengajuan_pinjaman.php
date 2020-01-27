@@ -85,7 +85,7 @@
                       showHideTransition: 'slide',
                       icon: 'success',
                       loaderBg: '#f96868',
-                      position: 'bottom-right',
+                      position: 'bottom-center',
                       hideAfter: 4000
                     });
                 }else {
@@ -105,11 +105,11 @@
         </script>
 
         <?php else: ?>
-
+          <div class="p-1 text-center">
+            Untuk mengajukan pinjaman diharapkan anda memenuhi persyaratan sebagai anggota dengan membayar simpanan wajib & simpanan pokok.
+          </div>
       <?php endif; ?>
-        <div class="p-1 text-center">
-          Untuk mengajukan pinjaman diharapkan anda memenuhi persyaratan sebagai anggota dengan membayar simpanan wajib & simpanan pokok.
-        </div>
+
       <?php else: ?>
         <div class="p-1 text-center">
           Anda harus menjadi anggota selama minimal 3 bulan untuk dapat mengajukan pinjaman.

@@ -7,7 +7,7 @@
 
 <!-- <a href="#" id="tes" >dsa</a> -->
 
-  <a href="<?=site_url("frontend/anggota/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
+  <a id="add-anggota" href="<?=site_url("frontend/anggota/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
 
 </div>
 <!-- content-wrapper ends -->
@@ -15,7 +15,26 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){
+$(document).on("click","#detail-anggota",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-sm')
+                  .removeClass('modal-md')
+                  .addClass('modal-lg');
+$("#modalTitle").text('Detail Anggota');
+$('#modalContent').load($(this).attr("href"));
+$("#modalGue").modal('show');
+});
+
+
+$(document).on("click","#add-anggota",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-sm')
+                  .removeClass('modal-md')
+                  .addClass('modal-lg');
+$("#modalTitle").text('Tambah Anggota');
+$('#modalContent').load($(this).attr("href"));
+$("#modalGue").modal('show');
+});
 
 var limit = 10;
 var start = 0;
@@ -77,5 +96,4 @@ $(window).scroll(function(){
   }
 });
 
-});
 </script>

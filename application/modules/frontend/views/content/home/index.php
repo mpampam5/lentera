@@ -128,7 +128,7 @@
               <i class="ti-layers icon-lg"></i>
               <div class="ml-3">
                   <p class="mt-2 text-muted card-text">Alokasi Pinjaman</p>
-  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(alokasi_pinjaman())?></h6>
+  								<h6 class=""><?=setting("CURRENCY")?>. <?=format_rupiah(jumlah_pinjaman())?></h6>
   						</div>
             </div>
           </div>

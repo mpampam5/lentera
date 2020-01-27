@@ -17,6 +17,14 @@ class Simpanan extends MY_Controller{
     $this->template->view("content/simpanan/index");
   }
 
+
+  function laporan_mutasi_simpanan()
+  {
+    $this->template->set_title("Laporan Mutasi Simpanan");
+    $this->template->back(site_url("frontend/simpanan"));
+    $this->template->view("content/simpanan/laporan_mutasi");
+  }
+
   function fetch(){
     $output = '';
     $data = $this->model->fetch_data($this->input->post('limit'), $this->input->post('start'));
@@ -44,8 +52,6 @@ class Simpanan extends MY_Controller{
                     </li>';
      }
 
-    }else {
-      $output.='<p class="text-center mt-5" style="font-style:italic">Data Belum Ada</p>';
     }
     echo $output;
   }

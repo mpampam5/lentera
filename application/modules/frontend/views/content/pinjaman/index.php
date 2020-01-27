@@ -11,14 +11,14 @@
       <span>Pinjaman Saya</span>
     </a>
 
-    <a href="#" class="list-pinjaman">
+    <a href="<?=site_url("frontend/pinjaman/bayar_pinjaman_saya")?>" class="list-pinjaman">
       <img src="<?=base_url()?>_template/images/business-and-finance.png" alt="">
       <span>Bayar Pinjaman</span>
     </a>
 
-    <a href="#" class="list-pinjaman">
+    <a href="<?=site_url("frontend/pinjaman/laporan")?>" class="list-pinjaman">
       <img src="<?=base_url()?>_template/images/bank-statement.png" alt="">
-      <span>Laporan Pinjaman</span>
+      <span>Laporan Pembayaran</span>
     </a>
 
   </div>
@@ -28,8 +28,8 @@
   <div class="mt-4 p-3">
     <ul style="font-size:12px;list-style:none">
       <li><i class="fa fa-check-square"></i> Jumlah Pinjaman <b id="tpinjaman">Rp.<?=format_rupiah(pinjaman())?></b></li>
-      <li><i class="fa fa-check-square"></i> Jumlah Pinjaman Yang Belum Di Bayar <b>Rp.<?=format_rupiah(pinjaman_bayar("1"))?></b></li>
-      <li><i class="fa fa-check-square"></i> Jumlah Pinjaman Yang Telah Di Bayar <b>Rp.<?=format_rupiah(pinjaman_bayar("0"))?></b></li>
+      <li><i class="fa fa-check-square"></i> Jumlah Pinjaman Yang Belum Di Bayar <b>Rp.<?=format_rupiah(pinjaman_bayar("0"))?></b></li>
+      <li><i class="fa fa-check-square"></i> Jumlah Pinjaman Yang Telah Di Bayar <b>Rp.<?=format_rupiah(pinjaman_bayar("1"))?></b></li>
     </ul>
   </div>
 </div>

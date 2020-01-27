@@ -9,7 +9,15 @@
 
 <script type="text/javascript">
 
-
+$(document).on("click","#detail-pembayaran",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-sm')
+                  .removeClass('modal-md')
+                  .addClass('modal-lg');
+$("#modalTitle").text('Detail Pembayaran Angsuran Pinjaman');
+$('#modalContent').load($(this).attr("href"));
+$("#modalGue").modal('show');
+});
 
 var limit = 10;
 var start = 0;
@@ -27,7 +35,7 @@ lazzy_loader(limit);
 function load_data(limit, start)
 {
   $.ajax({
-    url:"<?php echo base_url(); ?>frontend/pinjaman/fetch_pinjaman",
+    url:"<?php echo base_url(); ?>frontend/pinjaman/fetch_laporan",
     method:"POST",
     data:{limit:limit, start:start},
     cache: false,
