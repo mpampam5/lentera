@@ -29,6 +29,7 @@
 <!-- inject:js -->
 <script src="<?=base_url()?>_template/frontend/vendors/inputmask/dist/jquery.mask.min.js"></script>
 <script src="<?=base_url()?>_template/frontend/js/off-canvas.js"></script>
+<script src="<?=base_url()?>_template/frontend/vendors/clipboard/clipboard.min.js"></script>
 <script src="<?=base_url()?>_template/frontend/js/hoverable-collapse.js"></script>
 <script src="<?=base_url()?>_template/frontend/js/template.js"></script>
 <script src="<?=base_url()?>_template/frontend/js/settings.js"></script>
@@ -52,6 +53,28 @@
 				$('#modalTitle, #modalContent , #modalFooter').html('');
 			}, 500);
 	  });
+
+
+
+
+
+
+    //copy
+     var clipboard = new ClipboardJS('.btn-clipboard');
+     clipboard.on('success', function(e) {
+      console.log(e);
+      $.toast({
+        text: 'copy link referral success',
+        showHideTransition: 'slide',
+        icon: 'info',
+        loaderBg: '#f96868',
+        position: 'top-center',
+      });
+     });
+    clipboard.on('error', function(e) {
+      console.log(e);
+    });
+
 
 })(jQuery);
 

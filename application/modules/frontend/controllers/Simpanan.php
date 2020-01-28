@@ -424,5 +424,70 @@ function _cek_saldo_sukarela($str)
   }
 }
 
+function bagi_untung()
+{
+  $this->template->set_title("Bagi Untung");
+  $this->template->back(site_url("frontend/simpanan"));
+  $this->template->view("content/simpanan/bagi_untung");
+}
+
+
+function fetch_bagi_untung(){
+  $output = '';
+  $data = $this->model->fetch_data_bagi_untung($this->input->post('limit'), $this->input->post('start'));
+  if($data->num_rows() > 0)
+  {
+   foreach($data->result() as $row)
+   {
+    $output .= '<li class="list-deposit">
+                    <a>
+                      <div class="">
+                        <h6 class="text-muted" style="font-size:13px!important;"><i class="fa fa-certificate"></i> NO.REF BAGI UNTUNG #'.$row->kode_bagi_untung.'</h6>
+                        <h6 class="text-muted style="font-size:13px!important;""><i class="fa fa-calendar"></i> Tanggal : '.date("d/m/Y H:i",strtotime($row->date)).'</h6>
+                        <h6 class="text-muted" style="font-size:13px!important;"><i class="ti-wallet"></i> Jumlah Bagi Untung: Rp.'.format_rupiah($row->nominal_bagi_untung).' <span class="text-success">('.$row->persen.'%)</span></h6>
+                        <p class="text-muted" style="font-size:13px!important;">Mendapatkan Bagi Untung Dari Simpanan Sukarela :</p>
+                        <h6 class="text-muted" style="font-size:13px!important;"><i class="fa fa-certificate"></i> NO.REF SIMPANAN SUKARELA #'.$row->kode_simpanan_sukarela.'</h6>
+                        <h6 class="text-muted" style="font-size:13px!important;"><i class="ti-wallet"></i> Jumlah Simpanan: Rp.'.format_rupiah($row->nominal_simpanan_sukarela).'</h6>
+                      </div>
+                    </a>
+                  </li>';
+   }
+  }
+  echo $output;
+}
+
+
+function komisi_promosi()
+{
+  $this->template->set_title("Komisi Promosi");
+  $this->template->back(site_url("frontend/simpanan"));
+  $this->template->view("content/simpanan/komisi_promosi");
+}
+
+
+function fetch_komisi_promosi(){
+  $output = '';
+  $data = $this->model->fetch_data_komisi_promosi($this->input->post('limit'), $this->input->post('start'));
+  if($data->num_rows() > 0)
+  {
+   foreach($data->result() as $row)
+   {
+    $output .= '<li class="list-deposit">
+                    <a>
+                      <div class="">
+                        <h6 class="text-muted" style="font-size:13px!important;"><i class="fa fa-certificate"></i> NO.REF KOMISI PROMOSI #'.$row->kode_komisi_sponsor.'</h6>
+                        <h6 class="text-muted style="font-size:13px!important;""><i class="fa fa-calendar"></i> Tanggal : '.date("d/m/Y H:i",strtotime($row->date)).'</h6>
+                        <h6 class="text-muted" style="font-size:13px!important;"><i class="ti-wallet"></i> Jumlah Komisi: Rp.'.format_rupiah($row->nominal_komisi_sponsor).'</h6>
+                        <p class="text-muted" style="font-size:13px!important;">Mendapatkan Komisi Promosi Dari Simpanan Sukarela :</p>
+                        <h6 class="text-muted" style="font-size:13px!important;"><i class="fa fa-certificate"></i> NO.REF SIMPANAN SUKARELA #'.$row->kode_simpanan_sukarela.'</h6>
+                        <h6 class="text-muted" style="font-size:13px!important;"><i class="ti-wallet"></i> Jumlah Simpanan : Rp.'.format_rupiah($row->nominal_simpanan_sukarela).'</h6>
+                      </div>
+                    </a>
+                  </li>';
+   }
+  }
+  echo $output;
+}
+
 
 }

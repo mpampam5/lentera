@@ -11,7 +11,7 @@
  Target Server Version : 50532
  File Encoding         : 65001
 
- Date: 27/01/2020 20:04:40
+ Date: 28/01/2020 19:22:35
 */
 
 SET NAMES utf8mb4;
@@ -141,7 +141,7 @@ CREATE TABLE `login_history`  (
   `date` datetime NOT NULL,
   PRIMARY KEY (`id_log`) USING BTREE,
   INDEX `id_member`(`id_user`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of login_history
@@ -195,6 +195,20 @@ INSERT INTO `login_history` VALUES (46, 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; 
 INSERT INTO `login_history` VALUES (47, 16, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'pengurus', '2020-01-27 12:00:16');
 INSERT INTO `login_history` VALUES (48, 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'anggota', '2020-01-27 12:07:04');
 INSERT INTO `login_history` VALUES (49, 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'anggota', '2020-01-27 16:32:23');
+INSERT INTO `login_history` VALUES (50, 1, '::1', 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36', 'anggota', '2020-01-28 12:26:36');
+INSERT INTO `login_history` VALUES (51, 1, '192.168.1.161', 'Mozilla/5.0 (Linux; Android 7.1.2; Redmi Note 5A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.136 Mobile Safari/537.36', 'anggota', '2020-01-28 12:31:01');
+INSERT INTO `login_history` VALUES (52, 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'anggota', '2020-01-28 12:40:08');
+INSERT INTO `login_history` VALUES (53, 1, '192.168.1.161', 'Mozilla/5.0 (Linux; Android 7.1.2; Redmi Note 5A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.136 Mobile Safari/537.36', 'anggota', '2020-01-28 16:10:54');
+INSERT INTO `login_history` VALUES (54, 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'anggota', '2020-01-28 16:11:39');
+INSERT INTO `login_history` VALUES (55, 1, '::1', 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36', 'anggota', '2020-01-28 16:55:40');
+INSERT INTO `login_history` VALUES (56, 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'anggota', '2020-01-28 17:10:52');
+INSERT INTO `login_history` VALUES (57, 1, '192.168.1.161', 'Mozilla/5.0 (Linux; Android 7.1.2; Redmi Note 5A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.136 Mobile Safari/537.36', 'anggota', '2020-01-28 17:38:25');
+INSERT INTO `login_history` VALUES (58, 1, '192.168.1.161', 'Mozilla/5.0 (Linux; Android 7.1.2; Redmi Note 5A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.136 Mobile Safari/537.36', 'anggota', '2020-01-28 17:50:49');
+INSERT INTO `login_history` VALUES (59, 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'anggota', '2020-01-28 18:02:25');
+INSERT INTO `login_history` VALUES (60, 1, '192.168.1.161', 'Mozilla/5.0 (Linux; Android 7.1.2; Redmi Note 5A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.136 Mobile Safari/537.36', 'anggota', '2020-01-28 18:36:14');
+INSERT INTO `login_history` VALUES (61, 1, '::1', 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Mobile Safari/537.36', 'anggota', '2020-01-28 19:20:48');
+INSERT INTO `login_history` VALUES (62, 1, '::1', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'anggota', '2020-01-28 19:41:17');
+INSERT INTO `login_history` VALUES (63, 1, '192.168.1.161', 'Mozilla/5.0 (Linux; Android 7.1.2; Redmi Note 5A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.136 Mobile Safari/537.36', 'anggota', '2020-01-28 19:45:56');
 
 -- ----------------------------
 -- Table structure for persen_share_profit
@@ -297,16 +311,22 @@ CREATE TABLE `tb_anggota`  (
   `no_rekening` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   PRIMARY KEY (`id_anggota`) USING BTREE,
   UNIQUE INDEX `no_anggota`(`no_anggota`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_anggota
 -- ----------------------------
-INSERT INTO `tb_anggota` VALUES (1, 0, '0000001', 'pakar03', '$2y$10$6H44nO1cAj26fHlevZsHS.stSp3RIPKXOlcr3V7FEitJRlIkxDn8K', 'Muhammad Fadhil Fauzan', 'mpampam5@gmail.com', 'Ujung Pandang', '01/03/1995', '7371130301950005', '08114174707', 'Jalan Veteran Selatan No 292 I', 'Mamajang', 'Bontoala', 'Makassar', 'Sulawesi Selatan', 90221, 'Wiraswasta', '', '', '', '', 'S1', '$2y$10$6H44nO1cAj26fHlevZsHS.stSp3RIPKXOlcr3V7FEitJRlIkxDn8K', '2019-09-17 11:57:44', '1', '1', 'BCA', '7890715600');
-INSERT INTO `tb_anggota` VALUES (2, 1, '0000002', 'contoh01', 'dsadsa', 'Muhammad Irfan Ibnu', 'mpampam5@gmail.com', 'Makassar', '10/11/1991', '7371130301950001', '085288882994', 'Jalan Veteran Selatan No 292 I', 'Mamajang', 'Bontoala', 'Makassar', 'Sulawesi Selatan', 90221, 'Wiraswasta', '', '', '', '', 'S1', '$10$xyKVaVT3os08nNXPywhEUOeyMrDhKwcGLbfvqu/sFnxKSDO/Qk3uC', '2020-01-15 11:57:44', '1', '1', '', '');
-INSERT INTO `tb_anggota` VALUES (3, 1, '0000003', '', '$2y$10$xyKVaVT3os08nNXPywhEUOeyMrDhKwcGLbfvqu/sFnxKSDO/Qk3uC', 'Ibnu', 'mpampam5@gmail.com', 'makasssar', '01/03/1995', '123456789876541', '085288882994', 'Jalan Veteran Selatan No 292 I', 'Mamajang', 'sadsa', 'dsa', 'dsadsa', 0, 'dsada', '', '', '', '', 'dadsa', '$2y$10$xyKVaVT3os08nNXPywhEUOeyMrDhKwcGLbfvqu/sFnxKSDO/Qk3uC', '0000-00-00 00:00:00', '1', '1', '', '');
+INSERT INTO `tb_anggota` VALUES (1, 0, '0000001', 'pakar03', '$2y$10$tWuOF5QC29L8JdtTzYv1sOV7HfWl6alT1QIzcrOkdLjs7ChrdgNpu', 'Muhammad Fadhil Fauzan', 'mpampam51@gmail.com', 'Ujung Pandang', '01/03/1995', '7371130301950005', '08114174707', 'Jalan Veteran Selatan No 292 I', 'Mamajang', 'Bontoala', 'Makassar', 'Sulawesi Selatan', 90221, 'Wiraswasta', '', '', '', '', 'S1', '$2y$10$rlDzTgAIvLNuryx253kCnucHx540Cddwv0aFWx2N6vw5pr7kv.y/m', '2019-09-17 11:57:44', '1', '1', 'BNI', '033084549');
+INSERT INTO `tb_anggota` VALUES (2, 1, '0000002', 'contoh01', 'dsadsa', 'Muhammad Irfan Ibnu', 'mpampam511@gmail.com', 'Makassar', '10/11/1991', '7371130301950001', '085288882994', 'Jalan Veteran Selatan No 292 I', 'Mamajang', 'Bontoala', 'Makassar', 'Sulawesi Selatan', 90221, 'Wiraswasta', '', '', '', '', 'S1', '$10$xyKVaVT3os08nNXPywhEUOeyMrDhKwcGLbfvqu/sFnxKSDO/Qk3uC', '2020-01-15 11:57:44', '1', '1', '', '');
+INSERT INTO `tb_anggota` VALUES (3, 1, '0000003', '', '$2y$10$xyKVaVT3os08nNXPywhEUOeyMrDhKwcGLbfvqu/sFnxKSDO/Qk3uC', 'Ibnu', 'mpampama5@gmail.com1', 'makasssar', '01/03/1995', '123456789876541', '085288882994', 'Jalan Veteran Selatan No 292 I', 'Mamajang', 'sadsa', 'dsa', 'dsadsa', 0, 'dsada', '', '', '', '', 'dadsa', '$2y$10$xyKVaVT3os08nNXPywhEUOeyMrDhKwcGLbfvqu/sFnxKSDO/Qk3uC', '0000-00-00 00:00:00', '1', '1', '', '');
 INSERT INTO `tb_anggota` VALUES (4, 1, '0000004', 'contoh12', '$2y$10$OfPmoCgqwpvOnvy6BbC2NewTBs4KMLJ4M5qguLoiZk4F99APSj826', 'contoh 16', 'contoh@mail.com', 'makassar', '10 - nov 1994', '12345678987654', '403284030483280432', 'jl. abdul kadird', 'das', 'a', 'dsa', 'das', 0, 'dsadasdas', '', '', '', '', 'dseadas', '$2y$10$OfPmoCgqwpvOnvy6BbC2NewTBs4KMLJ4M5qguLoiZk4F99APSj826', '2020-01-27 19:32:50', '1', '1', '', '');
 INSERT INTO `tb_anggota` VALUES (5, 1, '0000005', 'ddsadsa', '$2y$10$NvNCAIk1bivcCevXXN5c2.GZlw4r6ZedRjSrc0VEirhxukBgyBgV.', 'sadsa', 'weqeqw@mail.com', 'dsa3', '21321', '322432', '3321312', 'ddasdas', 'dadsa', 'dsadsa', 'dsadsa', 'dsdsa', 0, 'dsadas', '', '', '', '', 'dsadsa', '$2y$10$NvNCAIk1bivcCevXXN5c2.GZlw4r6ZedRjSrc0VEirhxukBgyBgV.', '2020-01-27 19:33:41', '1', '1', '', '');
+INSERT INTO `tb_anggota` VALUES (6, 1, '0000012', 'contoh99', '$2y$10$P2xbtNf36V/bQXqBo3gR1ul0KIvuth6NybEk6RvVLIs5NdQxpenB2', 'contoh 99', 'mpampam5@gmail.com', 'ddsadas', '2020-01-24', '312321321321', '085288882994', 'dsadasda', 'dadas', 'dasda', 'dsa', 'das', 0, 'dsadsa', '', '', '', '', 'dsadsadsa', '$2y$10$P2xbtNf36V/bQXqBo3gR1ul0KIvuth6NybEk6RvVLIs5NdQxpenB2', '2020-01-28 20:20:22', '1', '1', '', '');
+INSERT INTO `tb_anggota` VALUES (7, 1, '0000007', 'irssss', '$2y$10$mxpqDq2LqIo65TlcK.dNF.vz1u9AU0QlwDymvKRKJO768bfHgtm.y', 'muhammad contoh', 'mpampam5sss@gmail.com', 'makassar', '2020-01-13', '43248934983948932', '32132132', 'ddsadsadsadsa', 'dsa', 'dsadsa', 'dsadsa', 'dsadsa', 0, 'dsadas', '', '', '', '', 'dsadsa', '$2y$10$mxpqDq2LqIo65TlcK.dNF.vz1u9AU0QlwDymvKRKJO768bfHgtm.y', '2020-01-28 19:22:18', '1', '1', '', '');
+INSERT INTO `tb_anggota` VALUES (8, 1, '0000008', 'irssss1', '$2y$10$29Rmprw0YMExyrW4YsI2Ee5bxUUfJdKbfH4.I4pLy3GySVDbuKN.e', 'muhammad contoh', 'mpampam5s@gmail.com', 'makassar', '2020-01-13', '4324893498394893222', '32132132', 'ddsadsadsadsa', 'dsa', 'dsadsa', 'dsadsa', 'dsadsa', 0, 'dsadas', '', '', '', '', 'dsadsa', '$2y$10$29Rmprw0YMExyrW4YsI2Ee5bxUUfJdKbfH4.I4pLy3GySVDbuKN.e', '2020-01-28 19:23:41', '1', '1', '', '');
+INSERT INTO `tb_anggota` VALUES (9, 1, '0000009', 'dsadadads', '$2y$10$ycEf4iy0eqfBCY3SlYvGJ.8fYPiNmMrIjJp3z3p6n/DX1DVjWH5xW', 'sadsadsadas', 'mpampam5111@gmail.com', 'dsadsa', '2020-01-16', '21321321312', '32213321321', 'dsadsa', 'dsadas', '2dsdasdas', 'dsadsa', 'dsadsa', 0, 'dadas', '', '', '', '', 'dasdas', '$2y$10$ycEf4iy0eqfBCY3SlYvGJ.8fYPiNmMrIjJp3z3p6n/DX1DVjWH5xW', '2020-01-28 19:25:50', '1', '1', '', '');
+INSERT INTO `tb_anggota` VALUES (10, 1, '0000010', 'dsadadads1233', '$2y$10$Kfpojo6q1YpgLkzgvz6Nj.MPvsFM6lPiRh.MFUZvHVpI9gPyHjolO', 'sadsadsadas', 'mpampam5@gmail.comd', 'dsadsa', '2020-01-16', '2132132131211', '32213321321', 'dsadsa', 'dsadas', '2dsdasdas', 'dsadsa', 'dsadsa', 0, 'dadas', '', '', '', '', 'dasdas', '$2y$10$Kfpojo6q1YpgLkzgvz6Nj.MPvsFM6lPiRh.MFUZvHVpI9gPyHjolO', '2020-01-28 19:26:47', '1', '1', '', '');
+INSERT INTO `tb_anggota` VALUES (11, 1, '0000011', 'pakarpakar', '$2y$10$Jtyk7jxZsrrK6LKKcPcKlu40nfe3xmGCQPPLQFu/FxXg0M8MmVY0.', 'pakar contoh', 'mpampasm5@gmail.com', 'makassar', '2020-01-23', '31321312', '32132132', 'sadas', 'dsa', 'dsa', 'dsa', 'dsa', 0, 'dsa', '', '', '', '', 'dsa', '$2y$10$Jtyk7jxZsrrK6LKKcPcKlu40nfe3xmGCQPPLQFu/FxXg0M8MmVY0.', '2020-01-28 19:32:46', '1', '1', '', '');
 
 -- ----------------------------
 -- Table structure for tb_bagi_untung
@@ -322,7 +342,12 @@ CREATE TABLE `tb_bagi_untung`  (
   PRIMARY KEY (`id_bagi_untung`) USING BTREE,
   INDEX `id_simp_sukarela`(`id_simp_sukarela`) USING BTREE,
   CONSTRAINT `tb_bagi_untung_ibfk_1` FOREIGN KEY (`id_simp_sukarela`) REFERENCES `tb_simpanan_sukarela` (`id_simpanan`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_bagi_untung
+-- ----------------------------
+INSERT INTO `tb_bagi_untung` VALUES (1, 'BU-000001', 2, 2.00, 2000, '2020-01-28 11:51:37');
 
 -- ----------------------------
 -- Table structure for tb_biaya_pendaftaran
@@ -339,7 +364,7 @@ CREATE TABLE `tb_biaya_pendaftaran`  (
   UNIQUE INDEX `kode_tr`(`kode_tr`) USING BTREE,
   INDEX `id_child`(`id_child`) USING BTREE,
   CONSTRAINT `tb_biaya_pendaftaran_ibfk_1` FOREIGN KEY (`id_child`) REFERENCES `tb_anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_biaya_pendaftaran
@@ -348,6 +373,12 @@ INSERT INTO `tb_biaya_pendaftaran` VALUES (1, 'BP-0000001', NULL, 1, 25000, '202
 INSERT INTO `tb_biaya_pendaftaran` VALUES (2, 'BP-0000002', 1, 3, 25000, '2020-01-27 19:18:06');
 INSERT INTO `tb_biaya_pendaftaran` VALUES (3, 'BP-0000003', 1, 4, 25000, '2020-01-27 19:32:50');
 INSERT INTO `tb_biaya_pendaftaran` VALUES (4, 'BP-0000004', 1, 5, 25000, '2020-01-27 19:33:41');
+INSERT INTO `tb_biaya_pendaftaran` VALUES (5, 'BP-0000005', 1, 7, 25000, '2020-01-28 19:22:18');
+INSERT INTO `tb_biaya_pendaftaran` VALUES (6, 'BP-0000006', 1, 8, 25000, '2020-01-28 19:23:41');
+INSERT INTO `tb_biaya_pendaftaran` VALUES (7, 'BP-0000007', 1, 9, 25000, '2020-01-28 19:25:50');
+INSERT INTO `tb_biaya_pendaftaran` VALUES (8, 'BP-0000008', 1, 10, 25000, '2020-01-28 19:26:47');
+INSERT INTO `tb_biaya_pendaftaran` VALUES (9, 'BP-0000009', 1, 11, 25000, '2020-01-28 19:32:46');
+INSERT INTO `tb_biaya_pendaftaran` VALUES (10, 'BP-0000010', 1, 6, 25000, '2020-01-28 20:20:22');
 
 -- ----------------------------
 -- Table structure for tb_biaya_withdraw
@@ -427,7 +458,7 @@ CREATE TABLE `tb_bonus_sponsor`  (
   INDEX `id_anggota_2`(`id_anggota`) USING BTREE,
   INDEX `id_anggota_3`(`id_anggota`) USING BTREE,
   CONSTRAINT `tb_bonus_sponsor_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `tb_anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_bonus_sponsor
@@ -435,6 +466,12 @@ CREATE TABLE `tb_bonus_sponsor`  (
 INSERT INTO `tb_bonus_sponsor` VALUES (1, 'BS-0000001', 1, 3, 12500, '2020-01-27 19:18:06');
 INSERT INTO `tb_bonus_sponsor` VALUES (2, 'BS-0000002', 1, 4, 12500, '2020-01-27 19:32:50');
 INSERT INTO `tb_bonus_sponsor` VALUES (3, 'BS-0000003', 1, 5, 12500, '2020-01-27 19:33:41');
+INSERT INTO `tb_bonus_sponsor` VALUES (4, 'BS-0000004', 1, 7, 12500, '2020-01-28 19:22:18');
+INSERT INTO `tb_bonus_sponsor` VALUES (5, 'BS-0000005', 1, 8, 12500, '2020-01-28 19:23:41');
+INSERT INTO `tb_bonus_sponsor` VALUES (6, 'BS-0000006', 1, 9, 12500, '2020-01-28 19:25:50');
+INSERT INTO `tb_bonus_sponsor` VALUES (7, 'BS-0000007', 1, 10, 12500, '2020-01-28 19:26:47');
+INSERT INTO `tb_bonus_sponsor` VALUES (8, 'BS-0000008', 1, 11, 12500, '2020-01-28 19:32:46');
+INSERT INTO `tb_bonus_sponsor` VALUES (9, 'BS-0000009', 1, 6, 12500, '2020-01-28 20:20:22');
 
 -- ----------------------------
 -- Table structure for tb_deposit
@@ -542,7 +579,12 @@ CREATE TABLE `tb_komisi_sponsor`  (
   CONSTRAINT `tb_komisi_sponsor_ibfk_1` FOREIGN KEY (`id_simp_sukarela`) REFERENCES `tb_simpanan_sukarela` (`id_simpanan`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `tb_komisi_sponsor_ibfk_2` FOREIGN KEY (`id_parent`) REFERENCES `tb_anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `tb_komisi_sponsor_ibfk_3` FOREIGN KEY (`id_child`) REFERENCES `tb_anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tb_komisi_sponsor
+-- ----------------------------
+INSERT INTO `tb_komisi_sponsor` VALUES (1, 'KP-00001', 2, 1, 2, 100000, '2020-01-28 12:58:09');
 
 -- ----------------------------
 -- Table structure for tb_lentera_setting
@@ -732,7 +774,7 @@ CREATE TABLE `tb_report`  (
   PRIMARY KEY (`id_report`) USING BTREE,
   INDEX `id_anggota`(`id_anggota`) USING BTREE,
   CONSTRAINT `tb_report_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `tb_anggota` (`id_anggota`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 177 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 189 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_report
@@ -759,6 +801,18 @@ INSERT INTO `tb_report` VALUES (173, 'BS-0000002', 1, 2, 0, 12500, 1443000, 'Men
 INSERT INTO `tb_report` VALUES (174, 'BP-0000004', 1, 4, 25000, 0, 1418000, 'Membayar biaya pendaftaran [0000005]', 'biaya_pendaftaran', '2020-01-27 19:33:41');
 INSERT INTO `tb_report` VALUES (175, 'BS-0000003', 1, 3, 0, 12500, 1430500, 'Mendapatkan royalti referral dari anggota [sadsa]', 'royalti_pendaftaran', '2020-01-27 19:33:41');
 INSERT INTO `tb_report` VALUES (176, 'SW-0000146', 1, 146, 50000, 0, 1380500, 'Membayar simpanan wajib', 'simpanan_wajib', '2020-01-27 21:03:25');
+INSERT INTO `tb_report` VALUES (177, 'BP-0000005', 1, 5, 25000, 0, 1457500, 'Membayar biaya pendaftaran [0000007]', 'biaya_pendaftaran', '2020-01-28 19:22:18');
+INSERT INTO `tb_report` VALUES (178, 'BS-0000004', 1, 4, 0, 12500, 1470000, 'Mendapatkan royalti referral dari anggota [muhammad contoh]', 'royalti_pendaftaran', '2020-01-28 19:22:18');
+INSERT INTO `tb_report` VALUES (179, 'BP-0000006', 1, 6, 25000, 0, 1445000, 'Membayar biaya pendaftaran [0000008]', 'biaya_pendaftaran', '2020-01-28 19:23:41');
+INSERT INTO `tb_report` VALUES (180, 'BS-0000005', 1, 5, 0, 12500, 1457500, 'Mendapatkan royalti referral dari anggota [muhammad contoh]', 'royalti_pendaftaran', '2020-01-28 19:23:41');
+INSERT INTO `tb_report` VALUES (181, 'BP-0000007', 1, 7, 25000, 0, 1432500, 'Membayar biaya pendaftaran [0000009]', 'biaya_pendaftaran', '2020-01-28 19:25:50');
+INSERT INTO `tb_report` VALUES (182, 'BS-0000006', 1, 6, 0, 12500, 1445000, 'Mendapatkan royalti referral dari anggota [sadsadsadas]', 'royalti_pendaftaran', '2020-01-28 19:25:50');
+INSERT INTO `tb_report` VALUES (183, 'BP-0000008', 1, 8, 25000, 0, 1420000, 'Membayar biaya pendaftaran [0000010]', 'biaya_pendaftaran', '2020-01-28 19:26:47');
+INSERT INTO `tb_report` VALUES (184, 'BS-0000007', 1, 7, 0, 12500, 1432500, 'Mendapatkan royalti referral dari anggota [sadsadsadas]', 'royalti_pendaftaran', '2020-01-28 19:26:47');
+INSERT INTO `tb_report` VALUES (185, 'BP-0000009', 1, 9, 25000, 0, 1407500, 'Membayar biaya pendaftaran [0000011]', 'biaya_pendaftaran', '2020-01-28 19:32:46');
+INSERT INTO `tb_report` VALUES (186, 'BS-0000008', 1, 8, 0, 12500, 1420000, 'Mendapatkan royalti referral dari anggota [pakar contoh]', 'royalti_pendaftaran', '2020-01-28 19:32:46');
+INSERT INTO `tb_report` VALUES (187, 'BP-0000010', 1, 10, 25000, 0, 1395000, 'Membayar biaya pendaftaran [0000012]', 'biaya_pendaftaran', '2020-01-28 20:20:22');
+INSERT INTO `tb_report` VALUES (188, 'BS-0000009', 1, 9, 0, 12500, 1407500, 'Mendapatkan royalti referral dari anggota [contoh 99]', 'royalti_pendaftaran', '2020-01-28 20:20:22');
 
 -- ----------------------------
 -- Table structure for tb_report_activity
@@ -772,7 +826,7 @@ CREATE TABLE `tb_report_activity`  (
   `date` datetime NOT NULL,
   PRIMARY KEY (`id_activity`) USING BTREE,
   INDEX `id_user`(`id_user`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 97 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 110 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tb_report_activity
@@ -818,6 +872,19 @@ INSERT INTO `tb_report_activity` VALUES (93, '1', 'anggota', 'Mendaftarkan anggo
 INSERT INTO `tb_report_activity` VALUES (94, '1', 'anggota', 'Mendaftarkan anggota [0000004]', '2020-01-27 19:32:50');
 INSERT INTO `tb_report_activity` VALUES (95, '1', 'anggota', 'Mendaftarkan anggota [0000005]', '2020-01-27 19:33:41');
 INSERT INTO `tb_report_activity` VALUES (96, '1', 'anggota', 'Membayar simpanan wajib 1 bulan senilai Rp 50.000', '2020-01-27 21:03:25');
+INSERT INTO `tb_report_activity` VALUES (97, '1', 'anggota', 'Update data rekening', '2020-01-28 17:20:47');
+INSERT INTO `tb_report_activity` VALUES (98, '1', 'anggota', 'Update data rekening', '2020-01-28 17:21:38');
+INSERT INTO `tb_report_activity` VALUES (99, '1', 'anggota', 'Update password', '2020-01-28 17:37:52');
+INSERT INTO `tb_report_activity` VALUES (100, '1', 'anggota', 'Update password', '2020-01-28 17:38:52');
+INSERT INTO `tb_report_activity` VALUES (101, '1', 'anggota', 'Update password transaksi', '2020-01-28 17:42:05');
+INSERT INTO `tb_report_activity` VALUES (102, '1', 'anggota', 'Update password transaksi', '2020-01-28 17:43:42');
+INSERT INTO `tb_report_activity` VALUES (103, '6', 'anggota', 'Buat akun dengan kode referral [pakar03]', '2020-01-28 17:53:54');
+INSERT INTO `tb_report_activity` VALUES (104, '1', 'anggota', 'Mendaftarkan anggota [0000007]', '2020-01-28 19:22:18');
+INSERT INTO `tb_report_activity` VALUES (105, '1', 'anggota', 'Mendaftarkan anggota [0000008]', '2020-01-28 19:23:41');
+INSERT INTO `tb_report_activity` VALUES (106, '1', 'anggota', 'Mendaftarkan anggota [0000009]', '2020-01-28 19:25:50');
+INSERT INTO `tb_report_activity` VALUES (107, '1', 'anggota', 'Mendaftarkan anggota [0000010]', '2020-01-28 19:26:47');
+INSERT INTO `tb_report_activity` VALUES (108, '1', 'anggota', 'Mendaftarkan anggota [0000011]', '2020-01-28 19:32:46');
+INSERT INTO `tb_report_activity` VALUES (109, '1', 'anggota', 'Mendaftarkan anggota [0000012]', '2020-01-28 20:20:22');
 
 -- ----------------------------
 -- Table structure for tb_royalti

@@ -60,23 +60,18 @@
               <li><a href="<?=site_url("frontend/anggota")?>"><img src="<?=base_url()?>_template/images/icons/gray/group.png" alt="" title="" /><span>Anggota</span></a></li>
               <!-- <li><a href="features.html"><img src="images/icons/gray/book.png" alt="" title="" /><span>Aturan & Sanksi</span></a></li> -->
               <!-- <li><a href="features.html"><img src="images/icons/gray/features.png" alt="" title="" /><span>AD/ART</span></a></li> -->
-        			<li><a href="about.html"><img src="<?=base_url()?>_template/images/icons/gray/money.png" alt="" title="" /><span>Tabungan</span></a></li>
-        			<li><a href="features.html"><img src="<?=base_url()?>_template/images/icons/gray/product.png" alt="" title="" /><span>Produk</span></a></li>
-              <li><a href="features.html"><img src="<?=base_url()?>_template/images/icons/gray/team.png" alt="" title="" /><span>Sosial</span></a></li>
-              <li><a href="features.html"><img src="<?=base_url()?>_template/images/icons/gray/mobile-app.png" alt="" title="" /><span>Layanan PPOB</span></a></li>
+        			<li><a href="<?=site_url("frontend/home/mt")?>"><img src="<?=base_url()?>_template/images/icons/gray/money.png" alt="" title="" /><span>Tabungan</span></a></li>
+        			<li><a href="<?=site_url("frontend/home/mt")?>"><img src="<?=base_url()?>_template/images/icons/gray/product.png" alt="" title="" /><span>Produk</span></a></li>
+              <li><a href="<?=site_url("frontend/home/mt")?>"><img src="<?=base_url()?>_template/images/icons/gray/team.png" alt="" title="" /><span>Sosial</span></a></li>
+              <li><a href="<?=site_url("frontend/home/mt")?>"><img src="<?=base_url()?>_template/images/icons/gray/mobile-app.png" alt="" title="" /><span>Layanan PPOB</span></a></li>
+              <li><a href="<?=site_url("frontend/service/aturan_sanksi")?>"><img src="<?=base_url()?>_template/images/icons/gray/book.png" alt="" title="" /><span>Aturan & sanksi</span></a></li>
+              <li><a href="<?=site_url("frontend/service/ad_art")?>"><img src="<?=base_url()?>_template/images/icons/gray/features.png" alt="" title="" /><span>AD/ART</span></a></li>
+              <li><a href="<?=site_url("frontend/service/customer_support")?>"><img src="<?=base_url()?>_template/images/icons/gray/support.png" alt="" title="" /><span>CUSTOMER Support</span></a></li>
             </ul>
-
-            <div class="text-center mt-5">
-              <h5 class="text-center text-white" style="font-size:11px;">CUSTOMER SUPPORT</h5>
-                <ul class="customer-support">
-                  <li><a href="videos.html"><img src="<?=base_url()?>_template/images/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a></li>
-              		<li><a href="tel:01234567"><img src="<?=base_url()?>_template/images/call.png" alt="" title="" /><span>Telepon</span></a></li>
-                </ul>
-            </div>
 
 
             <div class="btn-logout  mt-5">
-              <a href="#" class=""><i class="fa fa-power-off"></i> Logout</a>
+              <a href="<?=site_url("signout")?>" class=""><i class="fa fa-power-off"></i> Logout</a>
             </div>
 
 

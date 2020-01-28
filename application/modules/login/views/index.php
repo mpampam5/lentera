@@ -85,7 +85,7 @@
                 <img src="<?=base_url()?>_template/logo.png" alt="logo">
               </div>
 
-              <form class="pt-3" id="form" action="<?=$action?>">
+              <form class="pt-3" id="form" action="<?=$action?>" autocomplete="off">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend bg-transparent">
@@ -115,11 +115,11 @@
                 </div>
 
                 <div class="text-center mt-4 font-weight text-white">
-                   <a href="register.html" class="text-primary"> Lupa Password?</a>
+                   <a href="https://lenteradigitalindonesia.com/reset" class="text-primary"> Lupa Password?</a>
                 </div>
 
                 <div class="text-center mt-4  text-white">
-                  Belum Memiliki akun? <a href="register.html" class="text-primary"> Buat Akun</a>
+                  Belum Memiliki akun? <a href="https://lenteradigitalindonesia.com/register" class="text-primary"> Buat Akun</a>
                 </div>
 
 
@@ -127,8 +127,8 @@
                 <div class="text-center mt-5">
                   <h5 class="text-white" style="font-size:11px;">Hubungi Kami:</h5>
                     <ul class="customer-support">
-                      <li><a href="videos.html"><img src="<?=base_url()?>_template/images/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a></li>
-                  		<li><a href="tel:01234567"><img src="<?=base_url()?>_template/images/call.png" alt="" title="" /><span>Telepon</span></a></li>
+                      <li><a target="_blank" href="https://wa.me/<?=setting_system("NOWA")?>"><img src="<?=base_url()?>_template/images/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a></li>
+                  		<li><a target="_blank" href="tel:<?=setting_system("NOHP")?>"><img src="<?=base_url()?>_template/images/call.png" alt="" title="" /><span>Telepon</span></a></li>
                     </ul>
                 </div>
               </form>

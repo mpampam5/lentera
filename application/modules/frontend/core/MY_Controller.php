@@ -32,4 +32,23 @@ class MY_Controller extends CI_Controller{
         }
       }
 
+
+
+      function _cek_password_login($str)
+        {
+
+          $qry = $this->db->get_where("tb_anggota",["id_anggota"=>sess('id_anggota')]);
+          if ($qry->num_rows() > 0) {
+              if (password_verify($str, $qry->row()->password)) {
+                return true;
+              }else {
+                $this->form_validation->set_message('_cek_password_login', '* Password Login Salah');
+                return false;
+              }
+          }else {
+            $this->form_validation->set_message('_cek_password_login', '* Password Login Salah');
+            return false;
+          }
+        }
+
 }

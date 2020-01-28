@@ -54,10 +54,12 @@
 
 <div class="row p-2">
   <div class="col-sm-12">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" value="<?=site_url("link/referral/12345")?>">
-      <div class="input-group-append">
-        <button class="btn btn-sm btn-primary" type="button">Copy</button>
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" class="form-control" id="copy-referral" placeholder="Link Referral" aria-label="Link Referral" value="<?= base_url("anggota/register/referral/".profile("username")); ?>" readonly style="background: #fff;border:1px solid #f5ce00">
+        <div class="input-group-append">
+          <button class="btn btn-sm btn-warning btn-clipboard text-white" type="button" data-clipboard-action="copy" data-clipboard-target="#copy-referral"><i class="fa fa-copy"></i></button>
+        </div>
       </div>
     </div>
   </div>
@@ -175,55 +177,7 @@ var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 Morris.Line({
   element: 'morris-line-example',
   lineColors: ['#63CF72', '#F36368','#cc3333', '#472526'],
-  data: [{
-    m: '2020-01', // <-- valid timestamp strings
-    a: 1000000,
-    b:0
-  }, {
-    m: '2020-02',
-    a: 5466555,
-    b:1000000
-  }, {
-    m: '2020-03',
-    a: 2436655,
-    b:0
-  }, {
-    m: '2020-04',
-    a: 2066565,
-    b:0
-  }, {
-    m: '2020-05',
-    a: 1611555,
-    b:0
-  }, {
-    m: '2020-06',
-    a: 18700000,
-    b:0
-  }, {
-    m: '2020-07',
-    a: 210655,
-    b:0
-  }, {
-    m: '2020-08',
-    a: 204565,
-    b:1870000
-  }, {
-    m: '2020-09',
-    a: 22465,
-    b:0
-  }, {
-    m: '2020-10',
-    a: 3017777,
-    b:0
-  }, {
-    m: '2020-11',
-    a: 26277,
-    b:0
-  }, {
-    m: '2020-12',
-    a: 2199,
-    b:0
-  }, ],
+  data: <?=$grafik?>,
   xkey: 'm',
   ykeys: ['a','b'],
   labels: ['Simpanan','Pinjaman'],
@@ -237,6 +191,8 @@ Morris.Line({
     return month;
   },
 });
+
+
 </script>
 
 

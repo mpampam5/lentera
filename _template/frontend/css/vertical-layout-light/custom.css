@@ -173,8 +173,8 @@ iframe {
 .header-menu img{
   display: block;
   margin: 35px auto;
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
 }
 
 .btn-close-canvas{
@@ -226,7 +226,7 @@ ul.main-menu li img {
 ul.main-menu li span {
   display: block;
   text-align: center;
-  padding: 0 0 0 0;
+  padding: 10px 0 0 0;
   letter-spacing: 0.5px;
 }
 

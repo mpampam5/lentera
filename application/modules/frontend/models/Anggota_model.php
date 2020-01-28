@@ -8,7 +8,7 @@ class Anggota_model extends CI_Model{
     $this->db->select("id_anggota,id_parent, nama, no_anggota, join_date, status");
     $this->db->from("tb_anggota");
     $this->db->where("id_parent", sess("id_anggota"));
-    $this->db->where("status","1");
+    // $this->db->where("status","1");
     $this->db->order_by("join_date", "DESC");
     $this->db->limit($limit, $start);
     $query = $this->db->get();

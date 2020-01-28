@@ -1,13 +1,15 @@
 <div class="content-wrapper">
 
-  <div class="content-anggota">
+
+  <div class="content-deposit">
+    <!-- <h6 class="text-center mt-2 mb-4">LAPORAN MUTASI SIMPANAN</h6> -->
     <ul id="load_data"></ul>
     <div id="load_data_message"></div>
   </div>
 
 <!-- <a href="#" id="tes" >dsa</a> -->
 
-  <a id="add-anggota" href="<?=site_url("frontend/anggota/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
+  <!-- <a href="<?=site_url("frontend/simpanan/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a> -->
 
 </div>
 <!-- content-wrapper ends -->
@@ -15,37 +17,6 @@
 
 <script type="text/javascript">
 
-$(document).on("click","#detail-anggota",function(e){
-  e.preventDefault();
-  $('.modal-dialog').removeClass('modal-sm')
-                  .removeClass('modal-md')
-                  .addClass('modal-lg');
-$("#modalTitle").text('Detail Anggota');
-$('#modalContent').load($(this).attr("href"));
-$("#modalGue").modal('show');
-});
-
-
-$(document).on("click","#add-anggota",function(e){
-  e.preventDefault();
-  $('.modal-dialog').removeClass('modal-sm')
-                  .removeClass('modal-md')
-                  .addClass('modal-lg');
-$("#modalTitle").text('Tambah Anggota');
-$('#modalContent').load($(this).attr("href"));
-$("#modalGue").modal('show');
-});
-
-
-$(document).on("click","#verifikasi-anggota",function(e){
-  e.preventDefault();
-  $('.modal-dialog').removeClass('modal-sm')
-                  .removeClass('modal-md')
-                  .addClass('modal-lg');
-$("#modalTitle").text('Verifikasi Anggota');
-$('#modalContent').load($(this).attr("href"));
-$("#modalGue").modal('show');
-});
 
 var limit = 10;
 var start = 0;
@@ -68,7 +39,7 @@ lazzy_loader(limit);
 function load_data(limit, start)
 {
   $.ajax({
-    url:"<?php echo base_url(); ?>frontend/anggota/fetch",
+    url:"<?php echo base_url(); ?>frontend/simpanan/fetch_bagi_untung",
     method:"POST",
     data:{limit:limit, start:start},
     cache: false,

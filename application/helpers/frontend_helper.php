@@ -24,6 +24,19 @@ function setting($kode = null , $field = "nilai")
   }
 }
 
+
+function setting_isi_web($kode = null)
+{
+    $ci=& get_instance();
+    $query = $ci->db->query(' SELECT isi
+                                FROM isi_web
+                                WHERE kode = "' . $kode . '" ');
+    $result = $query->row_array();
+    if ($result) {
+        return $result['isi'];
+    }
+}
+
 function sess($str)
 {
    $ci=& get_instance();
