@@ -80,59 +80,71 @@
       <div class="content-wrapper d-flex align-items-center auth px-0">
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
-            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src="<?=base_url()?>_template/logo.png" alt="logo">
+            <?php if (setting('LOGIN_ANGGOTA', 'status')=="0"): ?>
+              <div class="mt-5 text-center">
+                <h6 class="text-center mt-5 pb-4" style="font-size:14px;line-height:18px"> MOHON MAAF<br> SAAT INI LAYANAN TAMBAH ANGGOTA DI TUTUP</h6>
+                <img src="<?=base_url("_template/images/smiling-face.png")?>" width="80" alt="" class="pb-4">
+                <p class="text-primary mt-3">Info Lebih Lanjut Hubungi CS Kami: </p>
+                <ul style="list-style:none">
+                  <li><a href="mailto:<?=setting_system("cs")?>"><i class="fa fa-envelope"></i> <?=setting_system("cs")?></a></li>
+                  <li><a href="tel:+<?=setting_system("nowa")?>"><i class="fa fa-phone"></i> +<?=setting_system("nowa")?></a></li>
+                </ul>
               </div>
-
-              <form class="pt-3" id="form" action="<?=$action?>" autocomplete="off">
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                      <span class="input-group-text bg-transparent border-right-0">
-                        <i class="ti-user text-success"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control form-control-lg border-left-0" name="username" placeholder="Username">
+              <?php else: ?>
+                <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                  <div class="brand-logo">
+                    <img src="<?=base_url()?>_template/logo.png" alt="logo">
                   </div>
-                  <div id="username"></div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                      <span class="input-group-text bg-transparent border-right-0">
-                        <i class="ti-lock text-success"></i>
-                      </span>
+
+                  <form class="pt-3" id="form" action="<?=$action?>" autocomplete="off">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend bg-transparent">
+                          <span class="input-group-text bg-transparent border-right-0">
+                            <i class="ti-user text-success"></i>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control form-control-lg border-left-0" name="username" placeholder="Username">
+                      </div>
+                      <div id="username"></div>
                     </div>
-                    <input type="password" class="password form-control form-control-lg border-left-0" name="password" placeholder="Password">
-                  </div>
-                  <div id="password"></div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend bg-transparent">
+                          <span class="input-group-text bg-transparent border-right-0">
+                            <i class="ti-lock text-success"></i>
+                          </span>
+                        </div>
+                        <input type="password" class="password form-control form-control-lg border-left-0" name="password" placeholder="Password">
+                      </div>
+                      <div id="password"></div>
+                    </div>
+
+
+                    <div class="mt-3">
+                      <button type="submit" id="submit" name="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOG IN</button>
+                    </div>
+
+                    <div class="text-center mt-4 font-weight text-white">
+                       <a href="https://lenteradigitalindonesia.com/reset" class="text-primary"> Lupa Password?</a>
+                    </div>
+
+                    <div class="text-center mt-4  text-white">
+                      Belum Memiliki akun? <a href="https://lenteradigitalindonesia.com/register" class="text-primary"> Buat Akun</a>
+                    </div>
+
+
+
+                    <div class="text-center mt-5">
+                      <h5 class="text-white" style="font-size:11px;">Hubungi Kami:</h5>
+                        <ul class="customer-support">
+                          <li><a target="_blank" href="https://wa.me/<?=setting_system("NOWA")?>"><img src="<?=base_url()?>_template/images/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a></li>
+                      		<li><a target="_blank" href="tel:<?=setting_system("NOHP")?>"><img src="<?=base_url()?>_template/images/call.png" alt="" title="" /><span>Telepon</span></a></li>
+                        </ul>
+                    </div>
+                  </form>
                 </div>
-
-
-                <div class="mt-3">
-                  <button type="submit" id="submit" name="button" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOG IN</button>
-                </div>
-
-                <div class="text-center mt-4 font-weight text-white">
-                   <a href="https://lenteradigitalindonesia.com/reset" class="text-primary"> Lupa Password?</a>
-                </div>
-
-                <div class="text-center mt-4  text-white">
-                  Belum Memiliki akun? <a href="https://lenteradigitalindonesia.com/register" class="text-primary"> Buat Akun</a>
-                </div>
-
-
-
-                <div class="text-center mt-5">
-                  <h5 class="text-white" style="font-size:11px;">Hubungi Kami:</h5>
-                    <ul class="customer-support">
-                      <li><a target="_blank" href="https://wa.me/<?=setting_system("NOWA")?>"><img src="<?=base_url()?>_template/images/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a></li>
-                  		<li><a target="_blank" href="tel:<?=setting_system("NOHP")?>"><img src="<?=base_url()?>_template/images/call.png" alt="" title="" /><span>Telepon</span></a></li>
-                    </ul>
-                </div>
-              </form>
-            </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
