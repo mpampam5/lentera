@@ -7,15 +7,13 @@
 
 <!-- <a href="#" id="tes" >dsa</a> -->
 
-  <a href="<?=site_url("frontend/withdraw/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
+  <a href="<?=site_url("frontend/withdraw/add")?>" id="form_withdraw" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
 
 </div>
 <!-- content-wrapper ends -->
 
 
 <script type="text/javascript">
-
-$(document).ready(function(){
 
 var limit = 10;
 var start = 0;
@@ -77,5 +75,15 @@ $(window).scroll(function(){
   }
 });
 
+
+
+$(document).on("click","#form_withdraw",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-sm')
+                  .removeClass('modal-md')
+                  .addClass('modal-lg');
+$("#modalTitle").text('Tambah Withdraw Baru');
+$('#modalContent').load($(this).attr("href"));
+$("#modalGue").modal('show');
 });
 </script>

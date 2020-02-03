@@ -8,11 +8,11 @@
     font-size: 14px;
     margin-bottom: 20px;
   }
+  .modal .modal-dialog .modal-content .modal-body{
+    padding: 10px 5px 3px 5px!important;
+  }
 </style>
-<div class="content-wrapper">
-  <div class="content-anggota" style="margin-top:0">
-    <div class="card">
-      <div class="card-body">
+
         <?php
         if ($row->status_deposit=="0") {
           $status = "<span class='text-warning'>Menunggu Verifikasi</span>";
@@ -56,9 +56,7 @@
 
 
         </table>
-      </div>
-    </div>
-  </div>
+
 
   <?php if ($row->status_deposit!="1"): ?>
     <div class="mt-4 p-2">
@@ -75,6 +73,4 @@
     </div>
   <?php endif; ?>
 
-
-</div>
 <!-- content-wrapper ends -->

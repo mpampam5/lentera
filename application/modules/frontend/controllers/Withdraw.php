@@ -46,7 +46,7 @@ class Withdraw extends MY_Controller{
      }
 
     }
-    
+
     echo $output;
   }
 
@@ -66,9 +66,9 @@ class Withdraw extends MY_Controller{
 
 function add()
 {
-  $this->template->set_title("Tambah Withdraw baru");
-  $this->template->back(site_url("frontend/withdraw"));
-  $this->template->view("content/withdraw/form");
+  // $this->template->set_title("Tambah Withdraw baru");
+  // $this->template->back(site_url("frontend/withdraw"));
+  $this->template->view("content/withdraw/form",[],false);
 }
 
 

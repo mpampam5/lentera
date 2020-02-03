@@ -32,7 +32,7 @@ class Deposit extends MY_Controller{
          $status = "<span class='text-danger'>Pending</span>";
        }
       $output .= '<li class="list-deposit">
-                      <a href="'.site_url("frontend/deposit/detail/".enc_uri($row->id_deposit)).'">
+                      <a href="'.site_url("frontend/deposit/detail/".enc_uri($row->id_deposit)).'" id="detail_deposit" alt="'.$row->kode_tr.'">
                         <div class="">
                           <h6 class="text-muted" style="font-size:14px!important;">KD.Transaksi #'.$row->kode_tr.'</h6>
                           <h6 class="text-muted" style="font-size:14px!important;"><i class="ti-wallet"></i> Jumlah Deposit : Rp.'.format_rupiah($row->amount).'</h6>
@@ -54,19 +54,19 @@ function detail($id="")
   $qry =  $this->model->get_where_detail(dec_uri($id));
 
   if ($qry->num_rows() > 0) {
-    $this->template->set_title("Detail Deposit");
-    $this->template->back(site_url("frontend/deposit"));
+    // $this->template->set_title("Detail Deposit");
+    // $this->template->back(site_url("frontend/deposit"));
     $data['row'] = $qry->row();
-    $this->template->view("content/deposit/detail",$data);
+    $this->template->view("content/deposit/detail",$data,false);
   }
 }
 
 
 function add()
 {
-  $this->template->set_title("Tambah Deposit baru");
-  $this->template->back(site_url("frontend/deposit"));
-  $this->template->view("content/deposit/form");
+  // $this->template->set_title("Tambah Deposit baru");
+  // $this->template->back(site_url("frontend/deposit"));
+  $this->template->view("content/deposit/form",[],false);
 }
 
 

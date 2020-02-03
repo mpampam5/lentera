@@ -7,15 +7,13 @@
 
 <!-- <a href="#" id="tes" >dsa</a> -->
 
-  <a href="<?=site_url("frontend/deposit/add")?>" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
+  <a href="<?=site_url("frontend/deposit/add")?>" id="form_deposit" class="add-anggota btn btn-primary btn-sm"><i class="ti-plus"></i></a>
 
 </div>
 <!-- content-wrapper ends -->
 
 
 <script type="text/javascript">
-
-$(document).ready(function(){
 
 var limit = 10;
 var start = 0;
@@ -77,5 +75,27 @@ $(window).scroll(function(){
   }
 });
 
+
+
+$(document).on("click","#form_deposit",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-sm')
+                  .removeClass('modal-md')
+                  .addClass('modal-lg');
+$("#modalTitle").text('Tambah Deposit baru');
+$('#modalContent').load($(this).attr("href"));
+$("#modalGue").modal('show');
 });
+
+
+$(document).on("click","#detail_deposit",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-sm')
+                  .removeClass('modal-md')
+                  .addClass('modal-lg');
+$("#modalTitle").text('Detail Deposit #'+$(this).attr('alt'));
+$('#modalContent').load($(this).attr("href"));
+$("#modalGue").modal('show');
+});
+
 </script>

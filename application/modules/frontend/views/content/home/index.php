@@ -56,7 +56,7 @@
   <div class="col-sm-12">
     <div class="form-group">
       <div class="input-group">
-        <input type="text" class="form-control" id="copy-referral" placeholder="Link Referral" aria-label="Link Referral" value="<?= base_url("anggota/register/referral/".profile("username")); ?>" readonly style="background: #fff;border:1px solid #f5ce00">
+        <input type="text" class="form-control" id="copy-referral" placeholder="Link Referral" aria-label="Link Referral" value="https://lenteradigitalindonesia.com/anggota/register/referral/<?=profile("username")?>" readonly style="background: #fff;border:1px solid #f5ce00">
         <div class="input-group-append">
           <button class="btn btn-sm btn-warning btn-clipboard text-white" type="button" data-clipboard-action="copy" data-clipboard-target="#copy-referral"><i class="fa fa-copy"></i></button>
         </div>
@@ -65,7 +65,7 @@
   </div>
 </div>
 
-  <div class="widget-dashboard">
+  <div class="widget-dashboard mt-2">
     <div class="d-flex flex-row">
       <div class="widget-content">
         <div class="card bg-danger">

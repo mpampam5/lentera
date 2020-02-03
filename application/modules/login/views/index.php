@@ -7,6 +7,7 @@
   <title>Login</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
@@ -137,10 +138,15 @@
 
                     <div class="text-center mt-5">
                       <h5 class="text-white" style="font-size:11px;">Hubungi Kami:</h5>
-                        <ul class="customer-support">
-                          <li><a target="_blank" href="https://wa.me/<?=setting_system("NOWA")?>"><img src="<?=base_url()?>_template/images/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a></li>
-                      		<li><a target="_blank" href="tel:<?=setting_system("NOHP")?>"><img src="<?=base_url()?>_template/images/call.png" alt="" title="" /><span>Telepon</span></a></li>
-                        </ul>
+                      <div class="p-3 mx-auto">
+                        <a target="_blank" href="https://wa.me/<?=setting_system("NOWA")?>" style="border-radius:50%;padding:7px 8px 7px 8px" class="btn btn-success btn-sm"><i class="fa fa-whatsapp"></i></a>&nbsp;&nbsp;
+                        <a target="_blank" href="tel:+<?=setting_system("NOHP")?>" style="border-radius:50%;padding:7px 8px 7px 8px" class="btn btn-primary btn-sm"><i class="fa fa-phone"></i></a>
+                      </div>
+                        <!-- <ul class="customer-support"> -->
+
+                          <!-- <li><a target="_blank" href="https://wa.me/<?=setting_system("NOWA")?>"><img src="<?=base_url()?>_template/images/whatsapp.png" alt="" title="" /><span>Whatsapp</span></a></li> -->
+                      		<!-- <li><a target="_blank" href="tel:+<?=setting_system("NOHP")?>"><img src="<?=base_url()?>_template/images/call.png" alt="" title="" /><span>Telepon</span></a></li> -->
+                        <!-- </ul> -->
                     </div>
                   </form>
                 </div>
